@@ -3,6 +3,9 @@ cache/*
 config/*
 .idea/*
 simpla/.htaccess
+simpla/.passwd
 compiled/*
 simpla/design/compiled/*
 access/*
+.htaccess
+error_log

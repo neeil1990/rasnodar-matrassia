@@ -1,0 +1,8 @@
+files/*
+cache/*
+config/*
+.idea/*
+simpla/.htaccess
+compiled/*
+simpla/design/compiled/*
+access/*

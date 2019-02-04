@@ -8,7 +8,7 @@
  * @author		Denis Pikusov
  *
  */
- 
+
 require_once(dirname(__FILE__).'/'.'Simpla.php');
 require_once(dirname(dirname(__FILE__)).'/Smarty/libs/Smarty.class.php');
 
@@ -30,30 +30,30 @@ class Design extends Simpla
 
 		// Берем тему из настроек
 		$theme = $this->get_theme();
-		
+
 
 		$this->smarty->compile_dir = $this->config->root_dir.'/compiled/'.$theme;
-		$this->smarty->template_dir = $this->config->root_dir.'/design/'.$theme.'/html';		
+		$this->smarty->template_dir = $this->config->root_dir.'/design/'.$theme.'/html';
 
 		// Создаем папку для скомпилированных шаблонов текущей темы
 		if(!is_dir($this->smarty->compile_dir))
 			mkdir($this->smarty->compile_dir, 0777);
-						
+
 		$this->smarty->cache_dir = 'cache';
-				
-		$this->smarty->registerPlugin('modifier', 'resize', array($this, 'resize_modifier'));		
+
+		$this->smarty->registerPlugin('modifier', 'resize', array($this, 'resize_modifier'));
 		$this->smarty->registerPlugin('modifier', 'token', array($this, 'token_modifier'));
-		$this->smarty->registerPlugin('modifier', 'plural', array($this, 'plural_modifier'));		
-		$this->smarty->registerPlugin('function', 'url', array($this, 'url_modifier'));		
-		$this->smarty->registerPlugin('modifier', 'first', array($this, 'first_modifier'));		
-		$this->smarty->registerPlugin('modifier', 'cut', array($this, 'cut_modifier'));		
-		$this->smarty->registerPlugin('modifier', 'date', array($this, 'date_modifier'));		
-		$this->smarty->registerPlugin('modifier', 'time', array($this, 'time_modifier'));		
+		$this->smarty->registerPlugin('modifier', 'plural', array($this, 'plural_modifier'));
+		$this->smarty->registerPlugin('function', 'url', array($this, 'url_modifier'));
+		$this->smarty->registerPlugin('modifier', 'first', array($this, 'first_modifier'));
+		$this->smarty->registerPlugin('modifier', 'cut', array($this, 'cut_modifier'));
+		$this->smarty->registerPlugin('modifier', 'date', array($this, 'date_modifier'));
+		$this->smarty->registerPlugin('modifier', 'time', array($this, 'time_modifier'));
 
 		if($this->config->smarty_html_minify)
 			$this->smarty->loadFilter('output', 'trimwhitespace');
 	}
-	
+
 	public function assign($var, $value)
 	{
 		return $this->smarty->assign($var, $value);
@@ -68,22 +68,22 @@ class Design extends Simpla
 		$this->design->assign('settings', $settings);
 		return $this->smarty->fetch($template);
 	}
-	
+
 	public function set_templates_dir($dir)
 	{
-		$this->smarty->template_dir = $dir;			
+		$this->smarty->template_dir = $dir;
 	}
 
 	public function set_compiled_dir($dir)
 	{
 		$this->smarty->compile_dir = $dir;
 	}
-	
+
 	public function get_var($name)
 	{
 		return $this->smarty->getTemplateVars($name);
 	}
-	
+
 	public function set_theme($theme) {
     if(is_dir($this->config->root_dir.'/design/'.$theme.'/html')) {
         setcookie('theme', $theme, time()+60*60*24*30, "/");
@@ -92,58 +92,53 @@ class Design extends Simpla
     else
         return false;
 }
- 
+
 public function get_theme() {
-  if(!isset($_COOKIE['theme']) || !is_dir($this->config->root_dir.'/design/'.$_COOKIE['theme'].'/html')) {
-      if($this->is_mobile_browser())
-          $theme = $this->set_theme($this->settings->theme_mobile);
-      else
-          $theme = $this->set_theme($this->settings->theme_full);
-  }
-  else
-      $theme = $_COOKIE['theme'];
- 
+  if($this->settings->theme_full)
+  $theme = $this->set_theme($this->settings->theme_full);
+
   return $theme;
 }
 public function get_themes()
 {
     if($handle = opendir('design/')) {
         while(false !== ($file = readdir($handle)))
-        { 
+        {
             if(is_dir('design/'.$file) && $file[0] != '.')
             {
                 unset($theme);
+				$theme = new stdClass();
                 $theme->name = $file;
-                $themes[] = $theme; 
-            } 
+                $themes[] = $theme;
+            }
         }
-        closedir($handle); 
+        closedir($handle);
         sort($themes);
     }
     return $themes;
-} 
-	
+}
+
 	private function is_mobile_browser()
 	{
 
-		$user_agent = $_SERVER['HTTP_USER_AGENT']; 
+		$user_agent = $_SERVER['HTTP_USER_AGENT'];
 		$http_accept = isset($_SERVER['HTTP_ACCEPT'])?$_SERVER['HTTP_ACCEPT']:'';
 
 		if(preg_match('/iPad/', $user_agent))
 			return false;
-		
+
 		if(stristr($user_agent, 'windows') && !stristr($user_agent, 'windows ce'))
 			return false;
-		
+
 		if(eregi('windows ce|iemobile|mobile|symbian|mini|wap|pda|psp|up.browser|up.link|mmp|midp|phone|pocket', $user_agent))
 			return true;
-	
+
 		if(stristr($http_accept, 'text/vnd.wap.wml') || stristr($http_accept, 'application/vnd.wap.xhtml+xml'))
 			return true;
-			
+
 		if(!empty($_SERVER['HTTP_X_WAP_PROFILE']) || !empty($_SERVER['HTTP_PROFILE']) || !empty($_SERVER['X-OperaMini-Features']) || !empty($_SERVER['UA-pixels']))
 			return true;
-	
+
 		$agents = array(
 		'acs-'=>'acs-',
 		'alav'=>'alav',
@@ -235,17 +230,17 @@ public function get_themes()
 		'winw'=>'winw',
 		'xda-'=>'xda-'
 		);
-		
+
 		if(!empty($agents[substr($_SERVER['HTTP_USER_AGENT'], 0, 4)]))
 	    	return true;
-	}	
+	}
 
 
 	public function resize_modifier($filename, $width=0, $height=0, $set_watermark=false)
 	{
 		$resized_filename = $this->image->add_resize_params($filename, $width, $height, $set_watermark);
 		$resized_filename_encoded = $resized_filename;
-		
+
 		if(substr($resized_filename_encoded, 0, 7) == 'http://')
 			$resized_filename_encoded = rawurlencode($resized_filename_encoded);
 
@@ -269,7 +264,7 @@ public function get_themes()
 
 	public function plural_modifier($number, $singular, $plural1, $plural2=null)
 	{
-		$number = abs($number); 
+		$number = abs($number);
 		if(!empty($plural2))
 		{
 		$p1 = $number%10;
@@ -289,7 +284,7 @@ public function get_themes()
 			else
 				return $plural1;
 		}
-	
+
 	}
 
 	public function first_modifier($params = array())
@@ -306,14 +301,14 @@ public function get_themes()
 	    else
 	    	return array_slice($array, 0, count($array)+$num, true);
 	}
-	
+
 	public function date_modifier($date, $format = null)
 	{
 		if(empty($date))
 			$date = date("Y-m-d");
 	    return date(empty($format)?$this->settings->date_format:$format, strtotime($date));
 	}
-	
+
 	public function time_modifier($date, $format = null)
 	{
 	    return date(empty($format)?'H:i':$format, strtotime($date));

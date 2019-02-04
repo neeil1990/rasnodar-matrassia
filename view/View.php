@@ -60,13 +60,8 @@ class View extends Simpla
 			// Или первую из списка
 			else
 				$this->currency = reset($this->currencies);
-
-			if(($theme = strval($this->request->get('theme')))!='') {
-                $this->design->set_theme($theme);
-                header("Location: ".$this->request->url(array('theme'=>null)));
-            }
              
-			//  $this->design->assign('themes',    $this->design->get_themes());
+			  $this->design->assign('themes',    $this->design->get_themes());
 			
 			// Пользователь, если залогинен
 			if(isset($_SESSION['user_id']))

@@ -130,7 +130,7 @@ a.buy-btn:hover, .bnt-bg a.buy-btn:hover {
 	color: #fff;
 }
 .tp-bullets {
-	z-index: 1000;
+	z-index: 90;
 	position: absolute;
 	opacity: 1;
 }

@@ -246,7 +246,7 @@ jQuery(document).ready(function() {
         });
 
 
-    jQuery('.mega-menu-category .nav > li').hover(function() {
+    jQuery('.mega-menu-category > .nav > li').hover(function() {
         jQuery(this).addClass("active");
         jQuery(this).find('.popup').stop(true, true).fadeIn('slow');
     }, function() {

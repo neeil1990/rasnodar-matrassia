@@ -6,8 +6,7 @@
                 <div class="pr-img-area">
                     <a title="Ipsums Dolors Untra" href="products/{$product->url}">
                         <figure>
-                            <img class="first-img" src="{$product->image->filename|resize:200:200}" alt="{$product->name|escape}">
-                            <img class="hover-img" src="{$product->image->filename|resize:200:200}" alt="{$product->name|escape}">
+                            <img class="first-img" src="{$product->image->filename|resize:160:160}" rel="image_src" alt="{$product->name|escape}">
                         </figure>
                     </a>
                 </div>

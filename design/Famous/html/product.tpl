@@ -35,8 +35,8 @@
                             <div class="icon-sale-label sale-left">Sale</div>
                             <div class="large-image">
                                 {if $product->image}
-                                <a href="{$product->image->filename|resize:800:600}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
-                                    <img class="zoom-img" src="{$product->image->filename|resize:800:600}" alt="{$product->name|escape}">
+                                <a href="{$product->image->filename|resize:400:400}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
+                                    <img class="zoom-img" src="{$product->image->filename|resize:400:400}" alt="{$product->name|escape}">
                                 </a>
                                 {/if}
                                 </div>
@@ -44,7 +44,7 @@
                                 <ul class="previews-list slides">
                                     {foreach $product->images as $i=>$image}
                                     <li>
-                                        <a href='{$image->filename|resize:800:600}' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '{$image->filename|resize:800:600}' ">
+                                        <a href='{$image->filename|resize:400:400}' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '{$image->filename|resize:400:400}' ">
                                             <img src="{$image->filename|resize:80:80}" alt = "{$product->name|escape}"/>
                                         </a>
                                     </li>

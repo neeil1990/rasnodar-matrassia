@@ -25,8 +25,12 @@
 	<!-- CSS Style -->
 	<link rel="stylesheet" href="design/{$settings->theme|escape}/style.css">
 </head>
-
+{if $module == 'MainView'}
 <body class="cms-index-index cms-home-page">
+{else}
+<body class="shop_grid_page">
+{/if}
+
 
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -144,7 +148,7 @@
 						<div class="col-sm-3 col-xs-12 jtv-logo-block">
 
 							<!-- Header Logo -->
-							<div class="logo"><a title="e-commerce" href="index.html"><img alt="Famous" title="Famous" src="design/{$settings->theme|escape}/images/logo.png"></a> </div>
+							<div class="logo"><a title="e-commerce" href="/"><img alt="Famous" title="Famous" src="design/{$settings->theme|escape}/images/logo.png"></a> </div>
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-6 jtv-top-search">
 
@@ -414,6 +418,12 @@
 
 <!-- owl.carousel.min js -->
 <script src="design/{$settings->theme|escape}/js/owl.carousel.min.js"></script>
+
+<!--cloud-zoom js -->
+<script src="design/{$settings->theme|escape}/js/cloud-zoom.js"></script>
+
+<!-- flexslider js -->
+<script src="design/{$settings->theme|escape}/js/jquery.flexslider.js"></script>
 
 <!-- jquery.mobile-menu js -->
 <script src="design/{$settings->theme|escape}/js/mobile-menu.js"></script>

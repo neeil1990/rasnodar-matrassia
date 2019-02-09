@@ -2285,10 +2285,12 @@ a.link:hover {
 	overflow: hidden;
 	position: relative;
 	border: 1px #e5e5e5 solid;
+	min-height: 165px;
 }
 .product-item .pr-img-area a {
 	display: block;
 	text-align: center;
+	line-height: 160px;
 }
 .product-item .pr-img-area > a::before {
 	background: #444 none repeat scroll 0 0;

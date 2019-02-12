@@ -64,11 +64,12 @@ $(document).ready(function() {
 		compare_price = '';
 		if(typeof $(this).find('option:selected').attr('compare_price') == 'string')
 			compare_price = $(this).find('option:selected').attr('compare_price');
-    if(typeof $(this).find('option:selected').attr('discount') == 'string')
-			discount = $(this).find('option:selected').attr('discount');  
+    	if(typeof $(this).find('option:selected').attr('discount') == 'string')
+			discount = $(this).find('option:selected').attr('discount');
+
 		$(this).closest('.prod').find('span.pr').html(price);
 		$(this).closest('.prod').find('span.disc').html(discount);
-    $(this).closest('.prod').find('span.cros').html(compare_price);
+    	$(this).closest('.prod').find('span.cros').html(compare_price);
 		return false;		
 	});
 	

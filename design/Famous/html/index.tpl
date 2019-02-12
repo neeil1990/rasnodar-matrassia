@@ -186,11 +186,13 @@
 							<div class="link-wishlist"> <a href="#"> <i class="icon-heart icons"></i><span> Wishlist</span></a> </div>
 							<!-- top cart -->
 							<div class="top-cart-contain">
-								<div class="mini-cart">
-									<div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle"> <a href="#">
+								<div class="mini-cart" id="cart_informer">
+									<div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
+										<a href="/cart">
 											<div class="cart-icon"><i class="icon-basket-loaded icons"></i><span class="cart-total">3</span></div>
 											<div class="shoppingcart-inner hidden-xs"><span class="cart-title">My Cart</span> </div>
-										</a></div>
+										</a>
+									</div>
 									<div>
 										<div class="top-cart-content">
 											<div class="block-subtitle hidden">Recently added items</div>
@@ -214,7 +216,7 @@
 											<div class="top-subtotal">Subtotal: <span class="price">$520.00</span></div>
 											<div class="actions">
 												<button class="btn-checkout" type="button" onClick="location.href='checkout.html'"><i class="fa fa-check"></i><span>Checkout</span></button>
-												<button class="view-cart" type="button" onClick="location.href='shopping_cart.html'"><i class="fa fa-shopping-cart"></i><span>View Cart</span></button>
+												<button class="view-cart" type="button" onClick="location.href='cart'"><i class="fa fa-shopping-cart"></i><span>View Cart</span></button>
 											</div>
 										</div>
 									</div>

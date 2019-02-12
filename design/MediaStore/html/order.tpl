@@ -10,7 +10,8 @@
 	<div class="clear"></div>
 </ul>
 
-<h1>Ваш заказ №{$order->id} 
+<h1>
+Ваш заказ №{$order->id}
 {if $order->status == 0}принят{/if}
 {if $order->status == 1}в обработке{elseif $order->status == 2}выполнен{/if}
 {if $order->paid == 1}, оплачен{else}{/if}
@@ -178,6 +179,10 @@
 	</tr>
 	{/if}
 </table>
+
+
+
+
 
 
 {if !$order->paid}

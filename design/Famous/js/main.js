@@ -457,7 +457,69 @@ jQuery(document).ready(function() {
         });
     }
 
-})
+
+    // Выбор вариантов
+    jQuery('select[name=variant]').change(function() {
+        var price = $(this).find('option:selected').attr('price');
+        var compare_price = '';
+        if(typeof $(this).find('option:selected').attr('compare_price') == 'string')
+            compare_price = $(this).find('option:selected').attr('compare_price');
+        if(typeof $(this).find('option:selected').attr('discount') == 'string')
+            var discount = $(this).find('option:selected').attr('discount');
+
+        jQuery(this).closest('.prod').find('.special-price span.price').html(price + " руб");
+        jQuery(this).closest('.prod').find('.old-price span.price').html(compare_price + " руб");
+        return false;
+    });
+
+
+    // Аяксовая корзина детальная стр.
+    $('form.variants2').on('submit', function(e) {
+        e.preventDefault();
+        var button = $(this).find('input[type="submit"]');
+        if($(this).find('input[name=variant]:checked').size()>0)
+            var variant = $(this).find('input[name=variant]:checked').val();
+        if($(this).find('select[name=variant]').size()>0)
+            variant = $(this).find('select').val();
+        $.ajax({
+            url: "ajax/cart.php",
+            data: {variant: variant,amount: $(this).find('input[name="amount"]').val()},
+            dataType: 'json',
+            success: function(data){
+                $('#cart_informer').html(data);
+                if(button.attr('data-result-text'))
+                    button.val(button.attr('data-result-text'));
+            }
+        });
+        var o1 = $(this).offset();
+        var o2 = $('#cart_informer').offset();
+        var dx = o1.left - o2.left;
+        var dy = o1.top - o2.top;
+        var distance = Math.sqrt(dx * dx + dy * dy);
+        $(this).closest('.product-view-area').find('.product-big-image .zoom-img').effect("transfer", { to: $("#cart_informer"), className: "transfer_class" }, distance);
+        $('.transfer_class').html($(this).closest('.product-view-area').find('.product-big-image').html());
+        $('.transfer_class').find('img').css('height', '100%');
+        return false;
+    });
+
+
+
+});
+
+jQuery(function(){
+    $('.checkout-btn').prop('disabled', true);
+    $('.checkout-btn').addClass('checkout-btn_disabled');
+
+    $('.agree_checkbox').on('change',function(){
+        if($(this).is( ":checked" )){
+            $('.checkout-btn').prop('disabled', false);
+            $('.checkout-btn').removeClass('checkout-btn_disabled');
+        }else{
+            $('.checkout-btn').prop('disabled', true);
+            $('.checkout-btn').addClass('checkout-btn_disabled');
+        }
+    });
+});
 
 
 

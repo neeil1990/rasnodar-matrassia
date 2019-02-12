@@ -1,5 +1,5 @@
 <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
-    <div class="product-item">
+    <div class="product-item prod">
         <div class="item-inner">
             <div class="product-thumbnail">
                 <div class="icon-new-label new-left">New</div>

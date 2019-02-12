@@ -54,7 +54,7 @@
                             <!-- end: more-images -->
                         </div>
                     {/if}
-                    <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
+                    <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 prod product-details-area">
                         <div class="product-name">
                             <h1>{$product->name|escape}</h1>
                         </div>
@@ -69,6 +69,56 @@
                             <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
                             <p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
                         </div>
+                        <form class="js-buyform prod variants2" name="buy_form" action="cart">
+                            <div class="product-color-size-area">
+                                <div class="color-area">
+                                    <h2 class="saider-bar-title">Color</h2>
+                                    <div class="color">
+                                        <ul>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="size-area">
+                                    <h2 class="saider-bar-title">Size</h2>
+                                    <div class="size">
+                                        {* Не показывать выбор варианта, если он один и без названия *}
+                                        <select name="variant" {if $product->variants|count==1  && !$product->variant->name}style='display:none;'{/if}>
+                                            {foreach $product->variants as $v}
+                                                <option value="{$v->id}" {if $v->compare_price > 0}compare_price="{$v->compare_price|convert}"  discount="{($v->compare_price-$v->price)|convert}"{/if} price="{$v->price|convert}">
+                                                    {$v->name}
+                                                </option>
+                                            {/foreach}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-variation">
+                                <form action="#" method="post">
+                                    <div class="cart-plus-minus">
+                                        <label for="qty">Quantity:</label>
+                                        <div class="numbers-row">
+                                            <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
+                                            <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="amount">
+                                            <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
+                                        </div>
+                                    </div>
+                                    <button class="button pro-add-to-cart" title="Add to Cart" type="submit"><span><i class="fa fa-shopping-basket"></i> В корзину</span></button>
+                                </form>
+                            </div>
+                        </form>
+                        <div class="product-cart-option">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-heart-o"></i><span>Add to Wishlist</span></a></li>
+                                <li><a href="#"><i class="fa fa-link"></i><span>Add to Compare</span></a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
+                            </ul>
+                        </div>
                         <div class="short-description">
                             <div class="page-title">
                                 <h2>Характеристики</h2>
@@ -81,53 +131,6 @@
                                 </tr>
                                 {/foreach}
                             </table>
-                        </div>
-                        <div class="product-color-size-area">
-                            <div class="color-area">
-                                <h2 class="saider-bar-title">Color</h2>
-                                <div class="color">
-                                    <ul>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                        <li><a href="#"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="size-area">
-                                <h2 class="saider-bar-title">Size</h2>
-                                <div class="size">
-                                    <ul>
-                                        <li><a href="#">S</a></li>
-                                        <li><a href="#">L</a></li>
-                                        <li><a href="#">M</a></li>
-                                        <li><a href="#">XL</a></li>
-                                        <li><a href="#">XXL</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-variation">
-                            <form action="#" method="post">
-                                <div class="cart-plus-minus">
-                                    <label for="qty">Quantity:</label>
-                                    <div class="numbers-row">
-                                        <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 0 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
-                                        <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
-                                        <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;" class="inc qtybutton"><i class="fa fa-plus">&nbsp;</i></div>
-                                    </div>
-                                </div>
-                                <button class="button pro-add-to-cart" title="Add to Cart" type="button"><span><i class="fa fa-shopping-basket"></i> Add to Cart</span></button>
-                            </form>
-                        </div>
-                        <div class="product-cart-option">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-heart-o"></i><span>Add to Wishlist</span></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i><span>Add to Compare</span></a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
-                            </ul>
                         </div>
                         <div class="pro-tags">
                             <div class="pro-tags-title">Tags:</div>

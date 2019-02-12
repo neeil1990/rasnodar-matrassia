@@ -5850,7 +5850,10 @@ ul.products-list .cart-button i {
 }
 .product-color-size-area .size-area {
 	display: inline-block;
-	width: 40%
+	width: 40%;
+}
+.product-color-size-area .size-area select[name="variant"]{
+	width: auto;
 }
 .product-view-area .product-details-area {
 	margin-top: 0;
@@ -6522,7 +6525,7 @@ p.note {
 .page-order .cart_description {
 	font-size: 14px
 }
-.page-order .cart_navigation a.checkout-btn {
+.page-order .cart_navigation .checkout-btn {
 	float: right;
 	background: #e83f33;
 	color: #fff;
@@ -6533,7 +6536,7 @@ p.note {
 	border-radius: 3px;
 	text-transform: uppercase;
 }
-.page-order .cart_navigation a.checkout-btn:hover {
+.page-order .cart_navigation .checkout-btn:hover {
 	border: 1px solid #222;
 	background: #222;
 }
@@ -8149,4 +8152,31 @@ a.jtv-m-logo-img {
 }
 .manufacturers-box {
 	margin-top: 15px;
+}
+
+.cart_summary tr th{
+	text-align: center;
+}
+.deliveries-title{
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+.checkout-btn_disabled {
+	opacity: .2;
+	cursor: not-allowed!important;
+}
+
+.agree_block {
+	width: 100%;
+	float: left;
+	border-radius: 5px;
+	border: 1px dashed red;
+	padding: 10px;
+	margin: 0 0 10px 0;
+	position: relative;
+	text-align: center;
+}
+.agree_block label{
+	cursor: pointer;
 }

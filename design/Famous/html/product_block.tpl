@@ -31,12 +31,25 @@
                                     <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> {$product->variant->price|convert} {$currency->sign|escape}</span> </p>
                                     <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> {$product->variant->compare_price|convert} {$currency->sign|escape}</span> </p>
                                 {else}
-                                    <span class="regular-price"> <span class="price">{$product->variant->price|convert} {$currency->sign|escape}</span> </span>
+                                    <span class="regular-price special-price"> <span class="price">{$product->variant->price|convert} {$currency->sign|escape}</span> </span>
                                 {/if}
                             </div>
                         </div>
+
                         <div class="pro-action">
-                            <button type="button" class="add-to-cart"><span> В корзину</span> </button>
+                            <form class="clearfix variants" name="buy_form" action="cart">
+                                <input type="hidden" class="multimage_backs value" name="amount" value="1" data-ratio="1">
+                                {* Не показывать выбор варианта, если он один и без названия *}
+                                <select class="input form-control" name="variant" {if $product->variants|count==1  && !$product->variant->name}style='display:none;'{/if}>
+                                    {foreach $product->variants as $v}
+                                        <option value="{$v->id}" {if $v->compare_price > 0}compare_price="{$v->compare_price|convert}"  discount="{($v->compare_price-$v->price)|convert}"{/if} price="{$v->price|convert}">
+                                            {$v->name}
+                                        </option>
+                                    {/foreach}
+                                </select>
+                                <br/>
+                                <button type="submit" class="add-to-cart" value="В корзину"><span> В корзину</span> </button>
+                            </form>
                         </div>
                     </div>
                 </div>

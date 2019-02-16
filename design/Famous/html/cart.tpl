@@ -78,7 +78,7 @@
                     </div>
                     <div class="row">
                         {if $deliveries}
-                        <div class="col-xs-12 col-sm-6" id="contact_form_map">
+                        <div class="col-sm-6" id="contact_form_map">
                             <h3 class="page-subheading">Выберите способ доставки</h3>
                             <br>
                             <ul id="deliveries" class="no">

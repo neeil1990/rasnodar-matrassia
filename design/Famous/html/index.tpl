@@ -24,6 +24,8 @@
 
 	<!-- CSS Style -->
 	<link rel="stylesheet" href="design/{$settings->theme|escape}/style.css">
+	<link rel="stylesheet" href="design/{$settings->theme|escape}/js/alertifyjs/css/alertify.min.css">
+	<link rel="stylesheet" href="design/{$settings->theme|escape}/js/alertifyjs/css/themes/default.min.css">
 </head>
 {if $module == 'MainView'}
 <body class="cms-index-index cms-home-page">
@@ -187,39 +189,8 @@
 							<!-- top cart -->
 							<div class="top-cart-contain">
 								<div class="mini-cart" id="cart_informer">
-									<div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
-										<a href="/cart">
-											<div class="cart-icon"><i class="icon-basket-loaded icons"></i><span class="cart-total">3</span></div>
-											<div class="shoppingcart-inner hidden-xs"><span class="cart-title">My Cart</span> </div>
-										</a>
-									</div>
-									<div>
-										<div class="top-cart-content">
-											<div class="block-subtitle hidden">Recently added items</div>
-											<ul id="cart-sidebar" class="mini-products-list">
-												<li class="item odd"> <a href="shopping_cart.html" title="Product title here" class="product-image"><img src="design/{$settings->theme|escape}/images/products/product-1.jpg" alt="html Template" width="65"></a>
-													<div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="pe-7s-trash"></i></a>
-														<p class="product-name"><a href="shopping_cart.html">Lorem ipsum dolor sit amet Consectetur</a> </p>
-														<strong>1</strong> x <span class="price">$20.00</span> </div>
-												</li>
-												<li class="item even"> <a href="shopping_cart.html" title="Product title here" class="product-image"><img src="design/{$settings->theme|escape}/images/products/product-1.jpg" alt="html Template" width="65"></a>
-													<div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="pe-7s-trash"></i></a>
-														<p class="product-name"><a href="shopping_cart.html">Consectetur utes anet adipisicing elit</a> </p>
-														<strong>1</strong> x <span class="price">$230.00</span> </div>
-												</li>
-												<li class="item last odd"> <a href="shopping_cart.html" title="Product title here" class="product-image"><img src="design/{$settings->theme|escape}/images/products/product-1.jpg" alt="html Template" width="65"></a>
-													<div class="product-details"> <a href="#" title="Remove This Item" class="remove-cart"><i class="pe-7s-trash"></i></a>
-														<p class="product-name"><a href="shopping_cart.html">Sed do eiusmod tempor incidist</a> </p>
-														<strong>2</strong> x <span class="price">$420.00</span> </div>
-												</li>
-											</ul>
-											<div class="top-subtotal">Subtotal: <span class="price">$520.00</span></div>
-											<div class="actions">
-												<button class="btn-checkout" type="button" onClick="location.href='checkout.html'"><i class="fa fa-check"></i><span>Checkout</span></button>
-												<button class="view-cart" type="button" onClick="location.href='cart'"><i class="fa fa-shopping-cart"></i><span>View Cart</span></button>
-											</div>
-										</div>
-									</div>
+									{* Обновляемая аяксом корзина должна быть в отдельном файле *}
+									{include file='cart_informer.tpl'}
 								</div>
 							</div>
 						</div>
@@ -433,6 +404,9 @@
 <!--jquery-ui.min js -->
 <script src="design/{$settings->theme|escape}/js/jquery-ui.js"></script>
 
+<!-- alertify js -->
+<script src="design/{$settings->theme|escape}/js/alertifyjs/alertify.min.js"></script>
+
 <!-- main js -->
 <script src="design/{$settings->theme|escape}/js/main.js"></script>
 
@@ -441,6 +415,8 @@
 
 <!-- Slider Js -->
 <script src="design/{$settings->theme|escape}/js/revolution-slider.js"></script>
+
+
 <script>
 	jQuery(document).ready(function(){
 		jQuery('#rev_slider_4').show().revolution({

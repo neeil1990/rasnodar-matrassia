@@ -2457,7 +2457,8 @@ a.link:hover {
 }
 .product-item .item-inner .item-info .pro-action {
 	position: absolute;
-	bottom: -50px;
+	background: #FFFFFF;
+	bottom: -100px;
 	width: 100%;
 	-moz-transition: all 300ms ease-out;
 	-o-transition: all 300ms ease-out;

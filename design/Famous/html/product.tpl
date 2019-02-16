@@ -69,7 +69,7 @@
                             <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
                             <p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
                         </div>
-                        <form class="js-buyform prod variants2" name="buy_form" action="cart">
+                        <form class="js-buyform variants2" name="buy_form" action="cart">
                             <div class="product-color-size-area">
                                 <div class="color-area">
                                     <h2 class="saider-bar-title">Color</h2>

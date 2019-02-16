@@ -1,7 +1,4 @@
 // Добавление товара к сравнению
-
-
-
 $('input[name=compare]:checked').live('click', function(e) {
 
       var val = $(this).val()

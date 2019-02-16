@@ -532,6 +532,30 @@ jQuery(document).ready(function() {
     });
 
 
+    // Добавление товара к сравнению
+    $('.add_to_compare').on('click', function(e) {
+        var val = $(this).attr("data-id");
+        $.ajax({
+            url: "ajax/compare.php",
+            data: {compare: val},
+            dataType: 'json',
+            success: function(data){
+                if(data){
+                    console.log(data);
+                    $('#compare_informer').html(data);
+                    if(parseInt($(data,"a").attr("compare-total")) == 6){
+                        alertify.success('Не более 6 товаров в сравнении!');
+                    }else{
+                        alertify.success('Товар в сравнении!');
+                    }
+                }
+            }
+        });
+        return false;
+    });
+
+
+
 
 });
 

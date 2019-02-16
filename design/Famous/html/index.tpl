@@ -185,7 +185,9 @@
 
 						</div>
 						<div class="col-xs-12 col-sm-4 col-md-3 top-cart">
-							<div class="link-wishlist"> <a href="#"> <i class="icon-heart icons"></i><span> Wishlist</span></a> </div>
+							<div class="link-wishlist" id="compare_informer">
+								{include file='compare_informer.tpl'}
+							</div>
 							<!-- top cart -->
 							<div class="top-cart-contain">
 								<div class="mini-cart" id="cart_informer">

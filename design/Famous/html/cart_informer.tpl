@@ -10,7 +10,7 @@
         <ul id="cart-sidebar" class="mini-products-list">
             {foreach  item=p from=$cart->purchases}
                 <li class="item odd">
-                    <a href="{$p->product->url}" title="{$p->product->name}" class="product-image">
+                    <a href="products/{$p->product->url}" title="{$p->product->name}" class="product-image">
                         {foreach item=img from=$p->product->images}
                             <img src="{$img->filename|resize:65:65}" alt="{$p->product->name}" width="65">
                             {break}
@@ -18,7 +18,7 @@
                     </a>
                     <div class="product-details">
                         <a href="cart/remove/{$p->variant->id}" title="Удалить" class="remove-cart"><i class="pe-7s-trash"></i></a>
-                        <p class="product-name"><a href="{$p->product->url}">{$p->product->name}</a> </p>
+                        <p class="product-name"><a href="products/{$p->product->url}">{$p->product->name}</a> </p>
                         <strong>{$p->amount}</strong> x <span class="price">{$p->variant->price|convert} {$currency->sign|escape}</span>
                     </div>
                 </li>

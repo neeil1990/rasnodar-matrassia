@@ -115,7 +115,7 @@ class Database extends Simpla
 			if ($result === false)
 			{ 
 				$error = "Placeholder substitution error. Diagnostics: \"$error\""; 
-				trigger_error($error, E_USER_WARNING); 
+				//trigger_error($error, E_USER_WARNING);
 				return false; 
 			} 
 			return $result;

@@ -338,7 +338,7 @@ jQuery(document).ready(function() {
             PRICE FILTER
         ******************************************/
 
-        jQuery('.slider-range-price').each(function() {
+        /*jQuery('.slider-range-price').each(function() {
             var min = jQuery(this).data('min');
             var max = jQuery(this).data('max');
             var unit = jQuery(this).data('unit');
@@ -358,6 +358,31 @@ jQuery(document).ready(function() {
                 }
             });
         })
+
+
+         jQuery('.slider-range-price').each(function() {
+         var min = jQuery(this).data('min');
+         var max = jQuery(this).data('max');
+         var unit = jQuery(this).data('unit');
+         var value_min = jQuery(this).data('value-min');
+         var value_max = jQuery(this).data('value-max');
+         var label_reasult = jQuery(this).data('label-reasult');
+         var t = jQuery(this);
+         jQuery(this).slider({
+         range: true,
+         min: min,
+         max: max,
+         values: [value_min, value_max],
+         slide: function(event, ui) {
+         var result = label_reasult + " " + ui.values[0] + ' ' + unit + ' - ' + ui.values[1] + ' ' + unit;
+         $('#min_price').attr("value", ui.values[0]);
+         $('#max_price').attr("value", ui.values[1]);
+         t.closest('.slider-range').find('.amount-range-price').html(result);
+         },
+         change:function(event,ui) {$('#slider_price').trigger('slider_price_change');}
+         });
+         });
+        */
 
     /******************************************
         Footer expander

@@ -188,125 +188,35 @@
                 </div>
                 <div class="block shop-by-side">
                     <div class="sidebar-bar-title">
-                        <h3>Shop By</h3>
-                    </div>
-                    <div class="block-content">
-                        <p class="block-subtitle">Shopping Options</p>
-                        <div class="layered-Category">
-                            <h2 class="saider-bar-title">Categories</h2>
-                            <div class="layered-content">
-                                <ul class="check-box-list">
-                                    <li>
-                                        <input type="checkbox" id="jtv1" name="jtvc">
-                                        <label for="jtv1"> <span class="button"></span> Women<span class="count">(12)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv1" name="jtvc">
-                                        <label for="jtv1"> <span class="button"></span> Men<span class="count">(22)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv1" name="jtvc">
-                                        <label for="jtv1"> <span class="button"></span> Kids<span class="count">(15)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv1" name="jtvc">
-                                        <label for="jtv1"> <span class="button"></span> Accessories<span class="count">(12)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv1" name="jtvc">
-                                        <label for="jtv1"> <span class="button"></span> Camera & Photo<span class="count">(12)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv2" name="jtvc">
-                                        <label for="jtv2"> <span class="button"></span> Computers<span class="count">(18)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv3" name="jtvc">
-                                        <label for="jtv3"> <span class="button"></span> Apple Store<span class="count">(15)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv4" name="jtvc">
-                                        <label for="jtv4"> <span class="button"></span> Car Electronic<span class="count">(03)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv5" name="jtvc">
-                                        <label for="jtv5"> <span class="button"></span> Accessories<span class="count">(04)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv7" name="jtvc">
-                                        <label for="jtv7"> <span class="button"></span> Game & Video<span class="count">(07)</span> </label>
-                                    </li>
-                                    <li>
-                                        <input type="checkbox" id="jtv8" name="jtvc">
-                                        <label for="jtv8"> <span class="button"></span> Best selling<span class="count">(05)</span> </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="manufacturer-area">
-                            <h2 class="saider-bar-title">Manufacturer</h2>
-                            <div class="saide-bar-menu">
-                                <ul>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i> Aliquam</a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i> Duis tempus id </a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i> Leo quis molestie. </a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i> Suspendisse </a></li>
-                                    <li><a href="#"><i class="fa fa-angle-right"></i> Nunc gravida </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="color-area">
-                            <h2 class="saider-bar-title">Color</h2>
-                            <div class="color">
-                                <ul>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#"></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="size-area">
-                            <h2 class="saider-bar-title">Size</h2>
-                            <div class="size">
-                                <ul>
-                                    <li><a href="#">S</a></li>
-                                    <li><a href="#">L</a></li>
-                                    <li><a href="#">M</a></li>
-                                    <li><a href="#">XL</a></li>
-                                    <li><a href="#">XXL</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="block product-price-range ">
-                    <div class="sidebar-bar-title">
-                        <h3>Price</h3>
+                        <h3>Категории</h3>
                     </div>
                     <div class="block-content">
                         <div class="slider-range">
-                            <div data-label-reasult="Range:" data-min="0" data-max="500" data-unit="$" class="slider-range-price" data-value-min="50" data-value-max="350"></div>
-                            <div class="amount-range-price">Range: $10 - $550</div>
-                            <ul class="check-box-list">
-                                <li>
-                                    <input type="checkbox" id="p1" name="cc" />
-                                    <label for="p1"> <span class="button"></span> $20 - $50<span class="count">(0)</span> </label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="p2" name="cc" />
-                                    <label for="p2"> <span class="button"></span> $50 - $100<span class="count">(0)</span> </label>
-                                </li>
-                                <li>
-                                    <input type="checkbox" id="p3" name="cc" />
-                                    <label for="p3"> <span class="button"></span> $100 - $250<span class="count">(0)</span> </label>
-                                </li>
-                            </ul>
+                            <div class="manufacturer-area">
+                                <div class="saide-bar-menu">
+                                    {foreach $categories as $c}
+                                    {* Показываем только видимые категории *}
+                                    {if $c->visible && in_array($category->id, $c->children) && $c->subcategories}
+                                    <ul>
+                                        {foreach $c->subcategories as $cat}
+                                        <li><a href="catalog/{$cat->url}""><i class="fa fa-angle-right"></i> {$cat->name} </a></li>
+                                        {/foreach}
+                                    </ul>
+                                    {/if}
+                                    {/foreach}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                {if $category->brands || $features}
+                    <div id="filter">{include file='filter.tpl'}</div>
+                {/if}
+                <!-- /smart.filter -->
+
+
+
                 <div class="single-img-add sidebar-add-slider ">
                     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->

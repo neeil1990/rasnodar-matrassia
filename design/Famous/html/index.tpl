@@ -418,6 +418,8 @@
 <!-- Slider Js -->
 <script src="design/{$settings->theme|escape}/js/revolution-slider.js"></script>
 
+<script src="design/{$settings->theme|escape}/js/filter.min.js"></script>
+
 
 <script>
 	jQuery(document).ready(function(){

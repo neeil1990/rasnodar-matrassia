@@ -5045,7 +5045,9 @@ button span {
 	overflow: hidden
 }
 .check-box-list li {
-	line-height: 24px
+	line-height: 24px;
+	position: relative;
+
 }
 .check-box-list label {
 	display: inline-block;
@@ -8180,4 +8182,13 @@ a.jtv-m-logo-img {
 }
 .agree_block label{
 	cursor: pointer;
+}
+
+#smartFilter .modef {
+	left: 250px;
+	min-width: 300px;
+	position: absolute;
+	top: -5px;
+	white-space: nowrap;
+	z-index: 210;
 }

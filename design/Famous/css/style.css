@@ -4423,7 +4423,6 @@ a.ads1 img {
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 30px;
-	text-transform: capitalize;
 	margin-bottom: 0px;
 }
 .sorter .short-by select {
@@ -4434,7 +4433,7 @@ a.ads1 img {
 	margin: 0;
 	padding: 0 14px;
 	vertical-align: middle;
-	width: 110px;
+	width: 120px;
 	border: 1px #e8e8e8 solid;
 	-webkit-appearance: none;
 	-moz-appearance: none;

@@ -580,7 +580,12 @@ jQuery(document).ready(function() {
     });
 
 
-
+    $(".short-by select").change(function(){
+        if($(this).val()){
+            window.location.href = $(this).val();
+        }
+        return false;
+    });
 
 });
 

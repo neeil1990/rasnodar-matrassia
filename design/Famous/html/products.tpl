@@ -95,21 +95,11 @@
                         </div>
                         <div class="sorter">
                             <div class="short-by">
-                                <label>Sort By:</label>
+                                <label>Сортировать по:</label>
                                 <select>
-                                    <option selected="selected">Position</option>
-                                    <option>Name</option>
-                                    <option>Price</option>
-                                    <option>Size</option>
-                                </select>
-                            </div>
-                            <div class="short-by page">
-                                <label>Show:</label>
-                                <select>
-                                    <option selected="selected">18</option>
-                                    <option>20</option>
-                                    <option>25</option>
-                                    <option>30</option>
+                                    <option {if $sort=='position'} selected="selected"{/if} value="{url sort=position page=null}">умолчанию</option>
+                                    <option {if $sort=='name'} selected="selected"{/if} value="{url sort=name page=null}">имени</option>
+                                    <option {if $sort=='price'} selected="selected"{/if} value="{url sort=price page=null}">цене</option>
                                 </select>
                             </div>
                         </div>
@@ -119,21 +109,16 @@
                             <!--Каталог товаров-->
                             {if $products}
                                 {foreach $products as $product}
-                                    {include file='product_block.tpl'}
+                                    <li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+                                        {include file='product_block.tpl'}
+                                    </li>
                                 {/foreach}
                             {else}
                                 <p><font class="errortext">В данной категории товаров нет</font></p>
                             {/if}
                         </ul>
                     </div>
-                    <div class="pagination-area">
-                        <ul>
-                            <li><a class="active" href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </div>
+                    {include file='pagination.tpl'}
                 </div>
             </div>
             <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">

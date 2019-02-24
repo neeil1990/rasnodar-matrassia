@@ -114,9 +114,8 @@
                         </form>
                         <div class="product-cart-option">
                             <ul>
-                                <li><a href="#"><i class="fa fa-heart-o"></i><span>Add to Wishlist</span></a></li>
-                                <li><a href="#"><i class="fa fa-link"></i><span>Add to Compare</span></a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i><span>Email to a Friend</span></a></li>
+                                <li><a href="#" class="add_to_compare" data-id="{$product->id}"><i class="fa fa-link"></i><span>Добавить в сравнение</span></a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i><span>Заказать звонок</span></a></li>
                             </ul>
                         </div>
                         <div class="short-description">

@@ -51,13 +51,13 @@
 				{foreach item=cat from=$c->subcategories}
 				{* Показываем только видимые категории *}
 				{if $cat->visible}
-				<li><a href="{$cat->url}" class="">{$cat->name}</a>
+				<li><a href="catalog/{$cat->url}" class="">{$cat->name}</a>
 					<ul>
 						{if $cat->subcategories}
 						{foreach $cat->subcategories as $cat3}
 						{* Показываем только видимые категории *}
 						{if $cat3->visible}
-						<li><a href="{$cat3->url}">{$cat3->name}</a></li>
+						<li><a href="catalog/{$cat3->url}">{$cat3->name}</a></li>
 						{/if}
 						{/foreach}
 						{/if}
@@ -119,25 +119,24 @@
 						</div>
 
 						<!-- top links -->
-						<div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12"> <span class="phone  hidden-xs hidden-sm">Call Us: +123.456.789</span>
+						<div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12">
+							<span class="phone  hidden-xs hidden-sm">Тел.: +7 (861) 217-59-54</span>
 							<ul class="links">
-								<li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
-								<li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>
 								<li><a title="Checkout" href="checkout.html"><span>Checkout</span></a></li>
-								<li>
-									<div class="dropdown"><a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span> <i class="fa fa-angle-down"></i></a>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="account_page.html">Account</a></li>
-											<li><a href="wishlist.html">Wishlist</a></li>
-											<li><a href="orders_list.html">Order Tracking</a></li>
-											<li><a href="about_us.html">About us</a></li>
-											<li class="divider"></li>
-											<li><a href="account_page.html">Log In</a></li>
-											<li><a href="register_page.html">Register</a></li>
-										</ul>
-									</div>
-								</li>
-								<li><a title="login" href="account_page.html"><span>Login</span></a></li>
+								{if $user}
+									<li>
+										<a title="login" href="user">
+											<span>
+												<i class="fa fa-user fa-sm"></i>
+												{$user->name} {if $group->discount>0},ваша скидка &mdash; {$group->discount}%{/if}
+											</span>
+										</a>
+									</li>
+									<li><a title="Выйти" href="user/logout"><span>Выйти</span></a></li>
+								{else}
+									<li><a title="Регистрация" href="/user/register"><span>Регистрация</span></a></li>
+									<li><a title="Авторизация" href="/user/login"><span>Авторизация</span></a></li>
+								{/if}
 							</ul>
 						</div>
 					</div>
@@ -157,25 +156,11 @@
 							<!-- Search -->
 
 							<div class="top-search">
-								<div id="search">
-									<form>
+								<div>
+									<form action="products" id="search">
 										<div class="input-group">
-											<select class="cate-dropdown hidden-xs hidden-sm" name="category_id">
-												<option>All Categories</option>
-												<option>women</option>
-												<option>&nbsp;&nbsp;&nbsp;Chair </option>
-												<option>&nbsp;&nbsp;&nbsp;Decoration</option>
-												<option>&nbsp;&nbsp;&nbsp;Lamp</option>
-												<option>&nbsp;&nbsp;&nbsp;Handbags </option>
-												<option>&nbsp;&nbsp;&nbsp;Sofas </option>
-												<option>&nbsp;&nbsp;&nbsp;Essential </option>
-												<option>Men</option>
-												<option>Electronics</option>
-												<option>&nbsp;&nbsp;&nbsp;Mobiles </option>
-												<option>&nbsp;&nbsp;&nbsp;Music &amp; Audio </option>
-											</select>
-											<input type="text" class="form-control" placeholder="Enter your search..." name="search">
-											<button class="btn-search" type="button"><i class="fa fa-search"></i></button>
+											<input id="title-search-input" type="text" class="input_search form-control" type="text" name="keyword" value="{$keyword|escape}"  maxlength="50"  placeholder="Поиск по сайту">
+											<button class="btn-search" type="submit"><i class="fa fa-search"></i></button>
 										</div>
 									</form>
 								</div>
@@ -419,6 +404,46 @@
 <script src="design/{$settings->theme|escape}/js/revolution-slider.js"></script>
 
 <script src="design/{$settings->theme|escape}/js/filter.min.js"></script>
+
+{* Автозаполнитель поиска *}
+{literal}
+	<script src="js/autocomplete/jquery.autocomplete-min.js" type="text/javascript"></script>
+
+	<style>
+		.autocomplete-suggestions
+		{
+			background-color: #ffffff;
+			overflow: hidden;
+			border: 1px solid #e0e0e0;
+			overflow-y: auto;
+		}
+		.autocomplete-suggestions .autocomplete-suggestion{cursor: default;}
+		.autocomplete-suggestions .selected { background:#F0F0F0; }
+		.autocomplete-suggestions div { padding:2px 5px; white-space:nowrap; }
+		.autocomplete-suggestions strong { font-weight:normal; color:#3399FF; }
+	</style>
+
+	<script>
+		$(function() {
+			//  Автозаполнитель поиска
+			$(".input_search").autocomplete({
+				serviceUrl:'ajax/search_products.php',
+				minChars:1,
+				noCache: false,
+				onSelect:
+						function(suggestion){
+							$(".input_search").closest('form').submit();
+						},
+				formatResult:
+						function(suggestion, currentValue){
+							var reEscape = new RegExp('(\\' + ['/', '.', '*', '+', '?', '|', '(', ')', '[', ']', '{', '}', '\\'].join('|\\') + ')', 'g');
+							var pattern = '(' + currentValue.replace(reEscape, '\\$1') + ')';
+							return (suggestion.data.image?"<img align=absmiddle src='"+suggestion.data.image+"'> ":'') + suggestion.value.replace(new RegExp(pattern, 'gi'), '<strong>$1<\/strong>');
+						}
+			});
+		});
+	</script>
+{/literal}
 
 
 <script>

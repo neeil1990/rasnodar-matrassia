@@ -13,7 +13,7 @@
 	<div class="clear"></div>
 </ul>  
 
-<h1>Регистрация</h1>
+<h1>Регистрация1</h1>
 
 {if $error}
 <div class="message_error">

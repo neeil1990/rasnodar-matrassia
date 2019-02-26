@@ -4,10 +4,10 @@
             <div class="col col-md-3 col-sm-6 col-xs-12">
                 <div class="block-wrapper ship">
                     <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-paper-plane"></i></div>
+                        <div class="icon-wrapper"><i class="fa fa-truck"></i></div>
                         <div class="service-wrapper">
-                            <h3>World-Wide Shipping</h3>
-                            <p>On order over $99</p>
+                            <h3>Быстрая доставка</h3>
+                            <p> &nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -15,10 +15,10 @@
             <div class="col col-md-3 col-sm-6 col-xs-12">
                 <div class="block-wrapper ship">
                     <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-paper-plane"></i></div>
+                        <div class="icon-wrapper"><i class="fa fa-shield"></i></div>
                         <div class="service-wrapper">
-                            <h3>World-Wide Shipping</h3>
-                            <p>On order over $99</p>
+                            <h3>Гарантия на все товары</h3>
+                            <p> &nbsp;</p>
                         </div>
                     </div>
                 </div>
@@ -26,10 +26,10 @@
             <div class="col col-md-3 col-sm-6 col-xs-12">
                 <div class="block-wrapper ship">
                     <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-paper-plane"></i></div>
+                        <div class="icon-wrapper"><i class="fa fa-thumbs-up"></i></div>
                         <div class="service-wrapper">
-                            <h3>World-Wide Shipping</h3>
-                            <p>On order over $99</p>
+                            <h3>Работаем напрямую от фабрики</h3>
+
                         </div>
                     </div>
                 </div>
@@ -37,10 +37,10 @@
             <div class="col col-md-3 col-sm-6 col-xs-12">
                 <div class="block-wrapper ship">
                     <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-paper-plane"></i></div>
+                        <div class="icon-wrapper"><i class="fa fa-map-marker"></i></div>
                         <div class="service-wrapper">
-                            <h3>World-Wide Shipping</h3>
-                            <p>On order over $99</p>
+                            <h3>Свой склад мебели в Краснодаре</h3>
+
                         </div>
                     </div>
                 </div>

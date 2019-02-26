@@ -268,6 +268,11 @@
 		</div>
 	</nav>
 	{$content}
+
+	{if $module != 'MainView'}
+	<!-- service section -->
+		{include file='service.tpl'}
+	{/if}
 	<!-- Footer -->
 	<footer>
 		<div class="container">

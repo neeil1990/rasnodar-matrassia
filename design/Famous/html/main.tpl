@@ -27,16 +27,7 @@
             <!-- Banner -->
             <div class="col-md-3 top-banner hidden-sm">
                 <div class="jtv-banner3">
-                    <div class="jtv-banner3-inner"><a href="#"><img src="design/{$settings->theme|escape}/images/sub1.jpg" alt="HTML template"></a>
-                        <div class="hover_content">
-                            <div class="hover_data">
-                                <div class="title"> Big Sale </div>
-                                <div class="desc-text">Up to 55% off</div>
-                                <span>Camera, Laptop & Mobile</span>
-                                <p><a href="#" class="shop-now">Get it now!</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    {include file='banner_1.tpl'}
                 </div>
             </div>
             <!-- Best Sale -->
@@ -95,12 +86,7 @@
 <div class="banner-section">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
-                <figure> <a href="#" target="_self" class="image-wrapper"><img src="design/{$settings->theme|escape}/images/banner-laptop.jpg" alt="banner laptop"></a></figure>
-            </div>
-            <div class="col-sm-6">
-                <figure> <a href="#" target="_self" class="image-wrapper"><img src="design/{$settings->theme|escape}/images/banner-mob.jpg" alt="banner moblie"></a></figure>
-            </div>
+            {include file='banner_2.tpl'}
         </div>
     </div>
 </div>
@@ -178,44 +164,15 @@
             <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
-                        <div class="banner-block"> <a href="#"> <img src="design/{$settings->theme|escape}/images/banner-sunglasses.jpg" alt="banner sunglasses"> </a>
-                            <div class="text-des-container">
-                                <div class="text-des">
-                                    <h2>Galaxy Note 5</h2>
-                                    <p>Fall Phone 25% off Colorful designs!</p>
-                                </div>
-                            </div>
-                        </div>
+                        {include file='banner_3.tpl'}
                     </div>
                     <div class="col-xs-12 col-sm-6 col-lg-6 col-md-6">
-                        <div class="banner-block"> <a href="#"> <img src="design/{$settings->theme|escape}/images/banner-kids.jpg" alt="banner kids"> </a>
-                            <div class="text-des-container">
-                                <div class="text-des">
-                                    <h2>Music & Sound</h2>
-                                    <p>For the littlest people</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="banner-block"> <a href="#"> <img src="design/{$settings->theme|escape}/images/banner-women.jpg" alt="banner women"> </a>
-                            <div class="text-des-container">
-                                <div class="text-des">
-                                    <h2>Best Quality Music</h2>
-                                    <p>Modern Headphones designs shop!</p>
-                                </div>
-                            </div>
-                        </div>
+                        {include file='banner_4.tpl'}
                     </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-lg-4 col-md-4">
-                <div class="banner-block"> <a href="#"> <img src="design/{$settings->theme|escape}/images/banner-arrival.jpg" alt="banner arrival"> </a>
-                    <div class="text-des-container">
-                        <div class="text-des">
-                            <h2>special collection</h2>
-                            <p>Sale upto 50% off on selected items</p>
-                        </div>
-                    </div>
-                </div>
+                {include file='banner_5.tpl'}
             </div>
         </div>
     </div>

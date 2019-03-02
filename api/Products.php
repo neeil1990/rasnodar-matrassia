@@ -79,11 +79,8 @@ class Products extends Simpla
 		if(!empty($filter['max_price']))
 			$max_price = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.price<=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['max_price']));
 
-		if(!empty($filter['width']))
-			$width = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.width=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['width']));;
-
-		if(!empty($filter['height']))
-			$height = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.height=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['height']));
+		if(!empty($filter['width']) && !empty($filter['height']))
+			$size = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.width=? AND pv.height=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['width']),intval($filter['height']));
 
 			
 	//	if(!empty($filter['in_stock']))
@@ -155,8 +152,7 @@ class Products extends Simpla
 					$visible_filter
 					$min_price
 					$max_price
-					$width
-					$height
+					$size
 				GROUP BY p.id
 				ORDER BY $order
 					$sql_limit";
@@ -217,11 +213,8 @@ class Products extends Simpla
 		if(!empty($filter['max_price']))
 			$max_price = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.price<=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['max_price']));
 
-		if(!empty($filter['width']))
-			$width = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.width=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['width']));;
-
-		if(!empty($filter['height']))
-			$height = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.height=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['height']));
+		if(!empty($filter['width']) && !empty($filter['height']))
+			$size = $this->db->placehold('AND (SELECT 1 FROM __variants pv WHERE pv.product_id=p.id AND pv.width=? AND pv.height=? AND (pv.stock IS NULL OR pv.stock>0) LIMIT 1)', intval($filter['width']),intval($filter['height']));
 		
 		if(!empty($filter['features']) && !empty($filter['features']))
 			foreach($filter['features'] as $feature=>$value)
@@ -245,8 +238,7 @@ class Products extends Simpla
 					$visible_filter
 					$min_price
 					$max_price
-					$width
-					$height
+					$size
 					$features_filter
 					$in_stock_filter ";
 

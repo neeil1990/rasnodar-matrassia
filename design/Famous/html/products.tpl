@@ -184,7 +184,15 @@
                                     {if $c->visible && in_array($category->id, $c->children) && $c->subcategories}
                                     <ul>
                                         {foreach $c->subcategories as $cat}
-                                        <li><a href="catalog/{$cat->url}""><i class="fa fa-angle-right"></i> {$cat->name} </a></li>
+                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i> {$cat->name} </a>
+                                            {if $cat->subcategories}
+                                            <ul>
+                                                {foreach $cat->subcategories as $cat2}
+                                                <li><a href="catalog/{$cat2->url}">&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-double-right">&nbsp;</i>{$cat2->name}</a></li>
+                                                {/foreach}
+                                            </ul>
+                                            {/if}
+                                        </li>
                                         {/foreach}
                                     </ul>
                                     {/if}

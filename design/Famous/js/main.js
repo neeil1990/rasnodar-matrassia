@@ -254,6 +254,10 @@ jQuery(document).ready(function() {
         jQuery(this).find('.popup').stop(true, true).fadeOut('slow');
     });
 
+    jQuery('.slider-range .saide-bar-menu ul > li').click(function(){
+        $(this).find('ul').toggle(300);
+    });
+
 
     jQuery('.mega-menu-category .nav > li.view-more').on('click', function(e) {
         if (jQuery('.mega-menu-category .nav > li.more-menu').is(':visible')) {

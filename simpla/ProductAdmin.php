@@ -46,6 +46,7 @@ class ProductAdmin extends Simpla
 				}
 			}
 
+
 			// Категории товара
 			$product_categories = $this->request->post('categories');
 			if(is_array($product_categories))
@@ -83,7 +84,7 @@ class ProductAdmin extends Simpla
 				}
 				$related_products = $rp;
 			}
-				
+
 			// Не допустить пустое название товара.
 			if(empty($product->name))
 			{			
@@ -128,6 +129,7 @@ class ProductAdmin extends Simpla
 		  		    if(is_array($variants))
 		  		    { 
 	 					$variants_ids = array();
+
 						foreach($variants as $index=>&$variant)
 						{
 							if($variant->stock == '∞' || $variant->stock == '')
@@ -159,7 +161,6 @@ class ProductAdmin extends Simpla
 							if(!empty($variant->id))
 					 			$variants_ids[] = $variant->id;
 						}
-						
 	
 						// Удалить непереданные варианты
 						$current_variants = $this->variants->get_variants(array('product_id'=>$product->id));
@@ -285,7 +286,8 @@ class ProductAdmin extends Simpla
 	  	    		}
   	    		}
 			}
-			
+
+
 			//header('Location: '.$this->request->url(array('message_success'=>'updated')));
 		}
 		else
@@ -301,7 +303,7 @@ class ProductAdmin extends Simpla
 				
 				// Варианты товара
 				$variants = $this->variants->get_variants(array('product_id'=>$product->id));
-				
+
 				// Изображения товара
 				$images = $this->products->get_images(array('product_id'=>$product->id));
 				
@@ -318,7 +320,8 @@ class ProductAdmin extends Simpla
 				$product->visible = 1;			
 			}
 		}
-		
+
+
 		
 		if(empty($variants))
 			$variants = array(1);

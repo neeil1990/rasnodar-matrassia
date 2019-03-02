@@ -216,8 +216,15 @@
 	display: block;
 	padding-top: 6px;
 }
-#variants_block li.variant_sku { width: 120px; }
-#variants_block li.variant_sku input { width: 95px; }
+#variants_block li.variant_sku { width: 100px; }
+#variants_block li.variant_sku input { width: 80px; }
+
+#variants_block li.variant_width { width: 80px; }
+#variants_block li.variant_width input { width: 50px; }
+
+#variants_block li.variant_height { width: 80px; }
+#variants_block li.variant_height input { width: 50px; }
+
 #variants_block li.variant_price { width: 120px; }
 #variants_block li.variant_price input {
 	width: 95px;

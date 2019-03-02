@@ -99,6 +99,12 @@ class ProductsView extends View
 				
 		if ($this->request->get('max_price'))
 			$filter['max_price'] = $this->request->get('max_price', 'integer') * $this->currency->rate_to/$this->currency->rate_from;
+
+		if ($this->request->get('width'))
+			$filter['width'] = $this->request->get('width', 'integer');
+
+		if ($this->request->get('height'))
+			$filter['height'] = $this->request->get('height', 'integer');
 		
 		// Сортировка товаров, сохраняем в сесси, чтобы текущая сортировка оставалась для всего сайта
 		if($sort = $this->request->get('sort', 'string'))
@@ -192,9 +198,14 @@ class ProductsView extends View
 			}
 
 			$this->design->assign('features', $features);
-		
+
 			//Минимальная и максимальная допустимая цена
-			$this->design->assign('max_min_price', $this->products->max_min_products($filter));	
+			$this->design->assign('max_min_price', $this->products->max_min_products($filter));
+
+			//Длина и Ширина
+			$this->design->assign('variants_width', $this->variants->get_variants_unique('width'));
+			$this->design->assign('variants_height', $this->variants->get_variants_unique('height'));
+
 			
 			//Минимальная и максимальная допустимая цена
 			$this->design->assign('slider_max_min_price', $this->products->max_min_products(array('category_id'=>$filter['category_id'])));	
@@ -274,6 +285,7 @@ class ProductsView extends View
 
 			$this->design->assign('products', $products);
  		}
+
 		
 		
 		
@@ -463,6 +475,12 @@ class ProductsView extends View
 				
 		if ($this->request->get('max_price'))
 			$filter['max_price'] = $this->request->get('max_price', 'integer') * $this->currency->rate_to/$this->currency->rate_from;
+
+		if ($this->request->get('width'))
+			$filter['width'] = $this->request->get('width', 'integer');
+
+		if ($this->request->get('height'))
+			$filter['height'] = $this->request->get('height', 'integer');
 
 		
 		// Свойства товаров

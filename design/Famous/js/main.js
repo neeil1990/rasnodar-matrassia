@@ -486,6 +486,20 @@ jQuery(document).ready(function() {
         });
     }
 
+    jQuery('select[name=variant]').each(function(li,el){
+
+        var price = $(el).find('option:selected').attr('price');
+        var compare_price = '';
+        if(typeof $(el).find('option:selected').attr('compare_price') == 'string')
+            compare_price = $(this).find('option:selected').attr('compare_price');
+        if(typeof $(el).find('option:selected').attr('discount') == 'string')
+            var discount = $(el).find('option:selected').attr('discount');
+
+        jQuery(el).closest('.prod').find('.special-price span.price').html(price + " руб");
+        jQuery(el).closest('.prod').find('.old-price span.price').html(compare_price + " руб");
+        return false;
+    });
+
 
     // Выбор вариантов
     jQuery('select[name=variant]').change(function() {
@@ -500,7 +514,6 @@ jQuery(document).ready(function() {
         jQuery(this).closest('.prod').find('.old-price span.price').html(compare_price + " руб");
         return false;
     });
-
 
 
     // Аяксовая корзина список товаров.

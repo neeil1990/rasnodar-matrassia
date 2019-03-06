@@ -751,7 +751,7 @@ overflow-y: auto;
 
 	<!-- Описагние товара -->
 	<div class="block layer">
-		<h2>Краткое описание</h2>
+		<h2>Описание доставка</h2>
 		<textarea name="annotation" class="editor_small">{$product->annotation|escape}</textarea>
 	</div>
 		

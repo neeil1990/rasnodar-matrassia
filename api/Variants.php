@@ -36,7 +36,7 @@ class Variants extends Simpla
 		if(!$product_id_filter && !$variant_id_filter)
 			return array();
 		
-		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.width, v.height, v.attachment, v.position
+		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.width, v.height, v.color, v.attachment, v.position
 					FROM __variants AS v
 					WHERE 
 					1
@@ -56,7 +56,7 @@ class Variants extends Simpla
 		if(empty($id))
 			return false;
 			
-		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.width, v.height, v.attachment
+		$query = $this->db->placehold("SELECT v.id, v.product_id , v.price, NULLIF(v.compare_price, 0) as compare_price, v.sku, IFNULL(v.stock, ?) as stock, (v.stock IS NULL) as infinity, v.name, v.width, v.height, v.color, v.attachment
 					FROM __variants v WHERE v.id=?
 					LIMIT 1", $this->settings->max_order_amount, $id);
 		
@@ -65,11 +65,11 @@ class Variants extends Simpla
 		return $variant;
 	}
 
-	public function get_variants_unique($field){
+	public function get_variants_unique($field,$category_id){
 		if(empty($field))
 			return false;
 
-		$query = $this->db->placehold("SELECT DISTINCT $field FROM __variants WHERE 1");
+		$query = $this->db->placehold("SELECT DISTINCT pv.$field FROM __products_categories AS pc LEFT JOIN __variants AS pv ON pc.product_id=pv.product_id WHERE pc.category_id = $category_id");
 
 		$this->db->query($query);
 		$unique = $this->db->results();

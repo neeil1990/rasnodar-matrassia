@@ -71,21 +71,8 @@
                         </div>
                         <form class="js-buyform variants2" name="buy_form" action="cart">
                             <div class="product-color-size-area">
-                                <div class="color-area">
-                                    <h2 class="saider-bar-title">Color</h2>
-                                    <div class="color">
-                                        <ul>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#"></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
                                 <div class="size-area">
-                                    <h2 class="saider-bar-title">Size</h2>
+                                    <h2 class="saider-bar-title">Вариант</h2>
                                     <div class="size">
                                         {* Не показывать выбор варианта, если он один и без названия *}
                                         <select name="variant" {if $product->variants|count==1  && !$product->variant->name}style='display:none;'{/if}>

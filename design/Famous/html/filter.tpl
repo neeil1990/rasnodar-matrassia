@@ -59,6 +59,27 @@
     </div>
     {/if}
 
+    <div class="block product-price-range ">
+        <div class="sidebar-bar-title">
+            <h3>Цветовое решение&nbsp;</h3>
+        </div>
+
+        <div class="block-content">
+            <div class="slider-range">
+                {if $variants_color}
+                    <label class="required">Цвет</label>
+                    <div class="custom_select">
+                        <select class="input form-control" name="color" id="variants_color">
+                            {foreach $variants_color as $c}
+                                <option value="{$c->color}" {if $smarty.get.color == $c->color}selected{/if}>{$c->color}</option>
+                            {/foreach}
+                        </select>
+                    </div><br>
+                {/if}
+            </div>
+        </div>
+    </div>
+
 
     {if $features}
         {foreach $features as $f}

@@ -105,6 +105,9 @@ class ProductsView extends View
 
 		if ($this->request->get('height'))
 			$filter['height'] = $this->request->get('height', 'integer');
+
+		if ($this->request->get('color'))
+			$filter['color'] = $this->request->get('color');
 		
 		// Сортировка товаров, сохраняем в сесси, чтобы текущая сортировка оставалась для всего сайта
 		if($sort = $this->request->get('sort', 'string'))
@@ -203,8 +206,11 @@ class ProductsView extends View
 			$this->design->assign('max_min_price', $this->products->max_min_products($filter));
 
 			//Длина и Ширина
-			$this->design->assign('variants_width', $this->variants->get_variants_unique('width'));
-			$this->design->assign('variants_height', $this->variants->get_variants_unique('height'));
+			$this->design->assign('variants_width', $this->variants->get_variants_unique('width',$category->id));
+			$this->design->assign('variants_height', $this->variants->get_variants_unique('height',$category->id));
+
+			//Цвет
+			$this->design->assign('variants_color', $this->variants->get_variants_unique('color',$category->id));
 
 			
 			//Минимальная и максимальная допустимая цена
@@ -482,6 +488,8 @@ class ProductsView extends View
 		if ($this->request->get('height'))
 			$filter['height'] = $this->request->get('height', 'integer');
 
+		if ($this->request->get('color'))
+			$filter['color'] = $this->request->get('color');
 		
 		// Свойства товаров
 		if(!empty($category))

@@ -43,7 +43,8 @@
                                             {if $v->compare_price > 0}compare_price="{$v->compare_price|convert}"
                                             discount="{($v->compare_price-$v->price)|convert}"{/if}
                                             price="{$v->price|convert}"
-                                            {if $smarty.get.width == $v->width && $smarty.get.height == $v->height}selected{/if}
+                                            {if $smarty.get.width == $v->width && $smarty.get.height == $v->height && $v->width != 0 && $v->height != 0}selected{/if}
+                                            {if $smarty.get.color == $v->color}selected{/if}
                                             >
                                         {$v->name}
                                     </option>

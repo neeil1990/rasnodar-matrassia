@@ -569,6 +569,7 @@ overflow-y: auto;
 			<li class="variant_name">Название варианта</li>	
 			<li class="variant_width">Длина</li>
 			<li class="variant_height">Ширина</li>
+			<li class="variant_color">Цвет</li>
 			<li class="variant_sku">Артикул</li>
 			<li class="variant_price">Цена, {$currency->sign}</li>	
 			<li class="variant_discount">Старая, {$currency->sign}</li>	
@@ -581,6 +582,7 @@ overflow-y: auto;
 			<li class="variant_name">      <input name="variants[id][]"            type="hidden" value="{$variant->id|escape}" /><input name="variants[name][]" type="" value="{$variant->name|escape}" /> <a class="del_variant" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
 			<li class="variant_width">       <input name="variants[width][]"           type="text"   value="{$variant->width|escape}" /></li>
 			<li class="variant_height">       <input name="variants[height][]"           type="text"   value="{$variant->height|escape}" /></li>
+			<li class="variant_color">       <input name="variants[color][]"           type="text"   value="{$variant->color|escape}" /></li>
 			<li class="variant_sku">       <input name="variants[sku][]"           type="text"   value="{$variant->sku|escape}" /></li>
 			<li class="variant_price">     <input name="variants[price][]"         type="text"   value="{$variant->price|escape}" /></li>
 			<li class="variant_discount">  <input name="variants[compare_price][]" type="text"   value="{$variant->compare_price|escape}" /></li>
@@ -608,6 +610,7 @@ overflow-y: auto;
 			<li class="variant_name"><input name="variants[id][]" type="hidden" value="" /><input name="variants[name][]" type="" value="" /><a class="del_variant" href=""><img src="design/images/cross-circle-frame.png" alt="" /></a></li>
 			<li class="variant_width"><input name="variants[width][]" type="text" value="" /></li>
 			<li class="variant_height"><input name="variants[height][]" type="text" value="" /></li>
+			<li class="variant_color"><input name="variants[color][]" type="text" value="" /></li>
 			<li class="variant_sku"><input name="variants[sku][]" type="" value="" /></li>
 			<li class="variant_price"><input  name="variants[price][]" type="" value="" /></li>
 			<li class="variant_discount"><input name="variants[compare_price][]" type="" value="" /></li>

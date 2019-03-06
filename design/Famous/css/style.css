@@ -461,6 +461,22 @@ label {
 .header-container {
 	background-color: #fff;
 }
+.header-container.fixed{
+	position: fixed;
+	z-index: 500;
+	width: 100%;
+	border-bottom: 4px solid #EB4331;
+	animation: slide-down .4s ease-out;
+	box-shadow: 0 8px 10px rgba(0,0,0,.2);
+}
+@keyframes slide-down {
+	from {
+		top: -146px;
+	}
+	to {
+		top: 0px;
+	}
+}
 /*4.1 welcome info */
 .welcome-info {
 	background-color: #fff;
@@ -493,7 +509,7 @@ label {
 	font-size: 12px;
 	width: 100%;
 	padding-top: 8px;
-	padding-bottom: 4px;
+	padding-bottom: 8px;
 }
 .header-top a {
 	color: #fff
@@ -668,6 +684,32 @@ label {
 .icon-search:before {
 	font-size: 16px
 }
+.top-phone {
+	margin-top: 30px;
+	text-align: center;
+}
+.link-phone{
+	position: relative;
+	display: inline-block;
+}
+.link-phone i {
+	font-size: 32px;
+	margin-right: 6px;
+	vertical-align: -10px;
+	color: #666;
+}
+.link-phone span {
+	font-size: 15px;
+	font-weight: 500;
+}
+.order-call{
+	text-align: center;
+	margin-left: 10px;
+}
+.order-call a{
+	color: red;
+	border-bottom: 1px dotted;
+}
 .cart-top .dropdown-menu {
 	padding: 10px;
 	min-height: 100px;
@@ -700,7 +742,7 @@ label {
 #search input {
 	height: 38px;
 	display: inline-block;
-	width: 92%;
+	width: 82%;
 	border: none;
 	background: #fff;
 	box-shadow: none;
@@ -840,7 +882,6 @@ select.cate-dropdown {
 }
 .link-wishlist {
 	position: relative;
-	margin-left: 15px;
 	display: inline-block;
 }
 .link-wishlist span {

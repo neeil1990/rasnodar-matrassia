@@ -89,40 +89,19 @@
 			<div class="header-top">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-4 col-md-4 col-xs-12">
+						<div class="col-sm-6 col-md-6 col-xs-12">
 							<!-- Default Welcome Message -->
-							<div class="welcome-msg hidden-xs hidden-sm">Default welcome msg! </div>
-							<!-- Language &amp; Currency wrapper -->
-							<div class="language-currency-wrapper">
-								<div class="inner-cl">
-									<div class="block block-language form-language">
-										<div class="lg-cur"><span><img src="design/{$settings->theme|escape}/images/flag-default.jpg" alt="French"><span class="lg-fr">French</span><i class="fa fa-angle-down"></i></span></div>
-										<ul>
-											<li><a class="selected" href="#"><img src="design/{$settings->theme|escape}/images/flag-english.jpg" alt="english"><span>English</span></a></li>
-											<li><a href="#"><img src="design/{$settings->theme|escape}/images/flag-default.jpg" alt="French"><span>French</span></a></li>
-											<li><a href="#"><img src="design/{$settings->theme|escape}/images/flag-german.jpg" alt="German"><span>German</span></a></li>
-											<li><a href="#"><img src="design/{$settings->theme|escape}/images/flag-brazil.jpg" alt="Brazil"><span>Brazil</span></a></li>
-											<li><a href="#"><img src="design/{$settings->theme|escape}/images/flag-chile.jpg" alt="Chile"><span>Chile</span></a></li>
-											<li><a href="#"><img src="design/{$settings->theme|escape}/images/flag-spain.jpg" alt="Spain"><span>Spain</span></a></li>
-										</ul>
-									</div>
-									<div class="block block-currency">
-										<div class="item-cur"><span>USD</span><i class="fa fa-angle-down"></i></div>
-										<ul>
-											<li><a href="#"><span class="cur_icon">€</span>EUR</a></li>
-											<li><a href="#"><span class="cur_icon">¥</span>JPY</a></li>
-											<li><a class="selected" href="#"><span class="cur_icon">$</span>USD</a></li>
-										</ul>
-									</div>
-								</div>
+							<div class="welcome-msg hidden-xs hidden-sm">
+								Время работы интернет-магазина |
+								без выходных 9:00-20:00 |
+								Магазин Пн-Пт 10:00-19:00
 							</div>
 						</div>
 
 						<!-- top links -->
-						<div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12">
-							<span class="phone  hidden-xs hidden-sm">Тел.: +7 (861) 217-59-54</span>
+						<div class="headerlinkmenu col-md-6 col-sm-6 col-xs-12">
+							<span class="phone  hidden-xs hidden-sm">Адрес: ул. Суздальская, 1</span>
 							<ul class="links">
-								<li><a title="Checkout" href="checkout.html"><span>Checkout</span></a></li>
 								{if $user}
 									<li>
 										<a title="login" href="user">
@@ -151,7 +130,20 @@
 							<!-- Header Logo -->
 							<div class="logo"><a title="e-commerce" href="/"><img alt="Famous" title="Famous" src="design/{$settings->theme|escape}/images/logo.png"></a> </div>
 						</div>
-						<div class="col-xs-12 col-sm-5 col-md-6 jtv-top-search">
+						<div class="col-xs-12 col-sm-5 col-md-3">
+							<div class="top-phone">
+								<div class="link-phone">
+									<a href="tel:+78612175954">
+										<i class="icon-call-in icons"></i>
+										<span>+7 (861) 217-59-54</span>
+									</a>
+								</div>
+							</div>
+							<div class="order-call">
+								<a href="#">Заказать звонок!</a>
+							</div>
+						</div>
+						<div class="col-xs-12 col-sm-5 col-md-3">
 
 							<!-- Search -->
 

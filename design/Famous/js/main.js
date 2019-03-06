@@ -604,6 +604,19 @@ jQuery(document).ready(function() {
         return false;
     });
 
+
+    $(window).scroll(function() {
+        if($(this).width() >= 768){
+            var header = $('.header-container');
+            var h = header.height();
+            if($(this).scrollTop() > h){
+                header.addClass('fixed');
+            }else{
+                header.removeClass('fixed');
+            }
+        }
+    });
+
 });
 
 jQuery(function(){

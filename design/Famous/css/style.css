@@ -2783,7 +2783,10 @@ a.link:hover {
 /******************************************
 15. Latest news
 ******************************************/
-.blog-post-wrapper {
+
+.banner-section,
+.blog-post-wrapper
+{
 	margin-top: 25px;
 }
 .blog-post-wrapper .blog-posts {
@@ -3434,7 +3437,7 @@ footer .footer-contact-item a:hover {
 	margin-top: 40px;
 }
 .coppyright {
-	padding-top: 12px;
+	padding-top: 5px;
 	color: #999;
 }
 .coppyright a {

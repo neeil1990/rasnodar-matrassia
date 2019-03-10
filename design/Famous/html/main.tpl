@@ -56,33 +56,7 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row">
-        <div class="daily-deal-section">
-            <!-- daily deal section-->
-            <div class="col-md-7 daily-deal">
-                <h3 class="deal-title">Deal of the day</h3>
-                <div class="title-divider"><span></span></div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel massa eget ante tincidunt vestibulum. Aenean vel metus magna. Mauris nec. Nunc congue ac libero ut lacinia. In ultrices
-                    elementum ipsum, in tempus enim accumsan.. </p>
-                <div class="hot-offer-text">Summer Sale <span>2017</span></div>
-                <div class="box-timer"> <span class="des-hot-deal">Hurry up! Special offer</span>
-                    <div class="time" data-countdown="countdown" data-date="09-30-2019-10-20-50"></div>
-                    <a href="#" class="link">Shopping Now</a> </div>
-            </div>
-            <div class="col-md-5 hot-pr-img-area">
-                <div id="daily-deal-slider" class="product-flexslider hidden-buttons">
-                    <div class="slider-items slider-width-col4 ">
-                        <div class="pr-img-area"> <a title="Product title here" href="single_product.html">
-                                <figure> <img class="first-img" src="design/{$settings->theme|escape}/images/products/product-1.jpg" alt="HTML template"></figure>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <div class="banner-section">
     <div class="container">
         <div class="row">
@@ -183,47 +157,6 @@
     <div class="about-page">
         {* Тело страницы *}
         {$page->body}
-    </div>
-</div>
-
-<div class="footer-newsletter">
-    <div class="container">
-        <div class="row">
-            <!-- Newsletter -->
-            <div class="col-md-6 col-sm-6">
-                <form id="newsletter-validate-detail" method="post" action="#">
-                    <h3>Join Our Newsletter</h3>
-                    <div class="title-divider"><span></span></div>
-                    <span class="sub-text">Enter your emali address to</span>
-                    <p class="sub-title text-center">Get 25% off</p>
-                    <span class="sub-text1">On your next Purchase</span>
-                    <div class="newsletter-inner">
-                        <input class="newsletter-email" name='Email' placeholder='Enter Your Email'/>
-                        <button class="button subscribe" type="submit" title="Subscribe">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-            <!-- Customers Box -->
-            <div class="col-sm-6 col-xs-12 testimonials">
-                <div class="page-header">
-                    <h2>What Our Customers Say</h2>
-                    <div class="title-divider"><span></span></div>
-                </div>
-                <div class="slider-items-products">
-                    <div id="testimonials-slider" class="product-flexslider hidden-buttons home-testimonials">
-                        <div class="slider-items slider-width-col4 ">
-                            <div class="holder">
-                                <blockquote>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip volutpat.
-                                    Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel.</blockquote>
-                                <div class="thumb"> <img src="design/{$settings->theme|escape}/images/testimonials-img3.jpg" alt="testimonials img"> </div>
-                                <div class="holder-info"> <strong class="name">John Doe</strong> <strong class="designation">CEO, Company</strong></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

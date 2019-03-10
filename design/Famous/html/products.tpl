@@ -47,34 +47,21 @@
     <div class="container">
         <div class="row">
             <div class="col-main col-sm-9 col-xs-12 col-sm-push-3">
+                {if $category->image}
                 <div class="category-description std">
                     <div class="slider-items-products">
                         <div id="category-desc-slider" class="product-flexslider hidden-buttons">
                             <div class="slider-items slider-width-col1 owl-carousel owl-theme">
-
                                 <!-- Item -->
                                 <div class="item">
-                                    <a href="#x"><img alt="HTML template" src="design/{$settings->theme|escape}/images/cat-slider-img1.jpg"></a>
-                                    <div class="inner-info">
-                                        <div class="cat-img-title"> <span>Best Product 2017</span>
-                                            <h2 class="cat-heading">Best Selling Brand</h2>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
-                                            <a class="info" href="#">Shop Now</a> </div>
-                                    </div>
+                                    <a href="catalog/{$category->url}"><img alt="HTML template" src="/files/categories/{$category->image}"></a>
                                 </div>
                                 <!-- End Item -->
-
-                                <!-- Item -->
-                                <div class="item">
-                                    <a href="#x"><img alt="HTML template" src="design/{$settings->theme|escape}/images/cat-slider-img2.jpg"></a>
-                                </div>
-
-                                <!-- End Item -->
-
                             </div>
                         </div>
                     </div>
                 </div>
+                {/if}
                 <div class="shop-inner">
                     <div class="page-title">
                         {* Заголовок страницы *}
@@ -208,66 +195,33 @@
                 {/if}
                 <!-- /smart.filter -->
 
-
-
-                <div class="single-img-add sidebar-add-slider ">
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active"> <img src="images/add-slide1.jpg" alt="slide1">
-                                <div class="carousel-caption">
-                                    <h3><a href="single_product.html" title=" Sample Product">Sale Up to 50% off</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <a href="#" class="info">shopping Now</a> </div>
-                            </div>
-                            <div class="item"> <img src="images/add-slide2.jpg" alt="slide2">
-                                <div class="carousel-caption">
-                                    <h3><a href="single_product.html" title=" Sample Product">Smartwatch Collection</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <a href="#" class="info">All Collection</a> </div>
-                            </div>
-                            <div class="item"> <img src="images/add-slide3.jpg" alt="slide3">
-                                <div class="carousel-caption">
-                                    <h3><a href="single_product.html" title=" Sample Product">Summer Sale</a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> </div>
-                </div>
                 <div class="block special-product">
                     <div class="sidebar-bar-title">
-                        <h3>Special Products</h3>
+                        <h3>Лучшие предложения</h3>
                     </div>
                     <div class="block-content">
                         <ul>
+                            {* Акционные товары *}
+                            {get_discounted_products var=discounted_products limit=2}
+                            {if $discounted_products}
+                            {foreach $discounted_products as $product}
                             <li class="item">
-                                <div class="products-block-left"> <a href="single_product.html" title="Sample Product" class="product-image"><img src="images/products/product-1.jpg" alt="Sample Product "></a></div>
+                                <div class="products-block-left">
+                                    <a href="products/{$product->url}" title="Sample Product" class="product-image">
+                                        <img src="{$product->image->filename|resize:75:75}" alt="{$product->name|escape}">
+                                    </a>
+                                </div>
                                 <div class="products-block-right">
-                                    <p class="product-name"> <a href="single_product.html">Lorem ipsum dolor sit amet Consectetur</a> </p>
-                                    <span class="price">$19.99</span>
-                                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> </div>
+                                    <p class="product-name">
+                                        <a href="products/{$product->url}">{$product->name|escape}</a>
+                                    </p>
+                                    <span class="price">{$product->variant->price|convert} {$currency->sign|escape}</span>
                                 </div>
                             </li>
-                            <li class="item">
-                                <div class="products-block-left"> <a href="single_product.html" title="Sample Product" class="product-image"><img src="images/products/product-1.jpg" alt="Sample Product "></a></div>
-                                <div class="products-block-right">
-                                    <p class="product-name"> <a href="single_product.html">Consectetur utes anet adipisicing elit</a> </p>
-                                    <span class="price">$89.99</span>
-                                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                </div>
-                            </li>
+                            {/foreach}
+                            {/if}
                         </ul>
-                        <a class="link-all" href="shop_grid.html">All Products</a> </div>
+                    </div>
                 </div>
                 <div class="block popular-tags-area ">
                     <div class="sidebar-bar-title">
@@ -289,42 +243,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="block block-poll">
-                    <div class="sidebar-bar-title">
-                        <h3>Community Poll</h3>
-                    </div>
-                    <form id="pollForm" action="#" method="post" onsubmit="return validatePollAnswerIsSelected();">
-                        <div class="block-content">
-                            <p class="block-subtitle">What is your favorite color</p>
-                            <ul id="poll-answers">
-                                <li class="odd">
-                                    <input type="radio" name="vote" class="radio poll_vote" id="vote_1" value="1">
-                    <span class="label">
-                    <label for="vote_1">Green</label>
-                    </span> </li>
-                                <li class="even">
-                                    <input type="radio" name="vote" class="radio poll_vote" id="vote_2" value="2">
-                    <span class="label">
-                    <label for="vote_2">Red</label>
-                    </span> </li>
-                                <li class="odd">
-                                    <input type="radio" name="vote" class="radio poll_vote" id="vote_3" value="3">
-                    <span class="label">
-                    <label for="vote_3">Black</label>
-                    </span> </li>
-                                <li class="last even">
-                                    <input type="radio" name="vote" class="radio poll_vote" id="vote_4" value="4">
-                    <span class="label">
-                    <label for="vote_4">Magenta</label>
-                    </span> </li>
-                            </ul>
-                            <div class="actions">
-                                <button type="submit" title="Vote" class="button button-vote"><span>Vote</span></button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="offer-banner"><img src="images/offer-banner.jpg" alt="banner"></div>
+
             </aside>
         </div>
     </div>

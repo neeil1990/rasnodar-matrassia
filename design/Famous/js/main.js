@@ -610,8 +610,10 @@ jQuery(document).ready(function() {
             var header = $('.header-container');
             var h = header.height();
             if($(this).scrollTop() > h){
+                header.parent().css('height',h);
                 header.addClass('fixed');
             }else{
+                header.parent().removeAttr('style');
                 header.removeClass('fixed');
             }
         }

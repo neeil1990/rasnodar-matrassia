@@ -67,7 +67,6 @@
                         <div class="ratings">
                             <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                             <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
-                            <p class="availability in-stock pull-right">Availability: <span>In Stock</span></p>
                         </div>
                         <form class="js-buyform variants2" name="buy_form" action="cart">
                             <div class="product-color-size-area">
@@ -88,7 +87,7 @@
                             <div class="product-variation">
                                 <form action="#" method="post">
                                     <div class="cart-plus-minus">
-                                        <label for="qty">Quantity:</label>
+                                        <label for="qty">Количество:</label>
                                         <div class="numbers-row">
                                             <div onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) result.value--;return false;" class="dec qtybutton"><i class="fa fa-minus">&nbsp;</i></div>
                                             <input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="amount">
@@ -119,11 +118,14 @@
                             </table>
                         </div>
                         <div class="pro-tags">
-                            <div class="pro-tags-title">Tags:</div>
-                            <a href="#">ecommerce</a>, <a href="#">bootstrap</a>, <a href="#">shopping</a>, <a href="#">fashion</a>, <a href="#">responsive</a> </div>
+                            <div class="pro-tags-title">Теги:</div>
+                            <a href="#">ecommerce</a>
+                        </div>
                         <div class="share-box">
-                            <div class="title">Share in social media</div>
-                            <div class="socials-box"> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a> <a href="#"><i class="fa fa-google-plus"></i></a> <a href="#"><i class="fa fa-youtube"></i></a> <a href="#"><i class="fa fa-linkedin"></i></a> <a href="#"><i class="fa fa-instagram"></i></a> </div>
+                            <div class="title">Мы в соцсетях</div>
+                            <div class="socials-box">
+                                <a href="https://vk.com/krasnodarmatrassia" target="_blank"><i class="fa fa-vk"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,59 +190,3 @@
 </div>
 {/if}
 <!-- Related Product Slider End -->
-
-<!-- Upsell Product Slider -->
-<section class="upsell-product-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="page-header">
-                    <h2>UpSell Products</h2>
-                </div>
-                <div class="slider-items-products">
-                    <div id="upsell-product-slider" class="product-flexslider hidden-buttons">
-                        <div class="slider-items slider-width-col4">
-
-                            <div class="product-item">
-                                <div class="item-inner">
-                                    <div class="product-thumbnail">
-                                        <div class="icon-sale-label sale-left">Sale</div>
-                                        <div class="pr-img-area"> <a title="Product title here" href="single_product.html">
-                                                <figure> <img class="first-img" src="images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="images/products/product-1.jpg" alt="HTML template"></figure>
-                                            </a> </div>
-                                        <div class="pr-info-area">
-                                            <div class="pr-button">
-                                                <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="info-inner">
-                                            <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                            <div class="item-content">
-                                                <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                <div class="item-price">
-                                                    <div class="price-box">
-                                                        <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                        <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                    </div>
-                                                </div>
-                                                <div class="pro-action">
-                                                    <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Upsell Product Slider End -->

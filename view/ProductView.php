@@ -18,7 +18,7 @@ class ProductView extends View
 {
 
 	function fetch()
-	{   
+	{
 		$product_url = $this->request->get('product_url', 'string');
 		
 		if(empty($product_url))

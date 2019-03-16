@@ -223,27 +223,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="block popular-tags-area ">
-                    <div class="sidebar-bar-title">
-                        <h3>Popular Tags</h3>
-                    </div>
-                    <div class="tag">
-                        <ul>
-                            <li><a href="#">Boys</a></li>
-                            <li><a href="#">Camera</a></li>
-                            <li><a href="#">good</a></li>
-                            <li><a href="#">Computers</a></li>
-                            <li><a href="#">Phone</a></li>
-                            <li><a href="#">clothes</a></li>
-                            <li><a href="#">girl</a></li>
-                            <li><a href="#">shoes</a></li>
-                            <li><a href="#">women</a></li>
-                            <li><a href="#">accessoties</a></li>
-                            <li><a href="#">View All Tags</a></li>
-                        </ul>
-                    </div>
-                </div>
-
+                {include file="tags.tpl"}
             </aside>
         </div>
     </div>

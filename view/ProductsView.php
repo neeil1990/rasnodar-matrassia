@@ -200,6 +200,23 @@ class ProductsView extends View
 					unset($features[$i]);
 			}
 
+
+
+			$tags = array();
+			$ar_tags = array_column($this->products->get_products(array("visible" => 1,"category_id" => array($category->id))),"meta_keywords");
+			if(count($ar_tags) > 0){
+				foreach($ar_tags as $key => $tag){
+					if(strlen($tag) > 0){
+						$tags = array_merge($tags,explode(",",$tag));
+					}
+				}
+				$tags = array_unique(array_map(function($tags){
+					return trim($tags);
+				},$tags));
+			}
+			$this->design->assign('tags', $tags);
+
+
 			$this->design->assign('features', $features);
 
 			//Минимальная и максимальная допустимая цена
@@ -413,6 +430,9 @@ class ProductsView extends View
 		
 		// Устанавливаем мета-теги в зависимости от запроса
 		if($this->page) {
+			if(isset($keyword))
+				$this->design->assign('meta_title', $keyword);
+			else
 			$this->design->assign('meta_title', $this->page->meta_title);
 			$this->design->assign('meta_keywords', $this->page->meta_keywords);
 			$this->design->assign('meta_description', $this->page->meta_description);

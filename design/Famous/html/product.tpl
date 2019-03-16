@@ -119,7 +119,12 @@
                         </div>
                         <div class="pro-tags">
                             <div class="pro-tags-title">Теги:</div>
-                            <a href="#">ecommerce</a>
+                            {if $product->meta_keywords}
+                                {foreach from=explode(",",$product->meta_keywords) key=k item=tags name=tag}
+                                    <a href="products?keyword={$tags}"> {$tags}</a>
+                                    {if $smarty.foreach.tag.last == false},{/if}
+                                {/foreach}
+                            {/if}
                         </div>
                         <div class="share-box">
                             <div class="title">Мы в соцсетях</div>

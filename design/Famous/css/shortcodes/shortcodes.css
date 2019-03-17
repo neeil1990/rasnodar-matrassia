@@ -1224,9 +1224,15 @@ p.error {
 	border: 1px solid #eb3535;
 	background-color: #fff;
 	text-align: center;
+	margin-bottom: 10px;
+	cursor: pointer;
 }
 .alertymes4 i {
 	margin-right: 10px;
+}
+.alertymes4.blue{
+	color: #086bbc;
+	border-color: #086bbc;
 }
 /******************************************
 5. Pie Charts

@@ -63,7 +63,7 @@ if ($interval < 1) { // если прошло менее получаса, ук�
 	$message = "Сообщение уже было отправлено.";	
 } else {
 
-if ((strlen($_GET['cname'])>2)&&((strlen($_GET['cphone'])>5))){
+if ((strlen($_GET['cname'])>0)&&((strlen($_GET['cphone'])>0))){
 	$ip = $_SERVER['REMOTE_ADDR']; //что будем отправлять
 	$phone = gf("cphone");
 	$name = gf("cname");
@@ -78,9 +78,7 @@ if (strlen($comment) > 2) {
 	$mess = $mess."<b>Комментарий</b><br>".$comment."<br><br>";
 }
 
-	$mess = $mess."<b>Отправлено со страницы</b><br>".$url."<br><br><b>ip</b><br>".$ip."<hr>
-	<a href='http://dedushka.org/tag/callme/'>Следите</a> за обновлениями.<br>
-	Спасибо за то, что пользуетесь CallMe.";
+	$mess = $mess."<b>Отправлено со страницы</b><br>".$url."<br><br><b>ip</b><br>".$ip."<hr>";
 	
 	$headers  = "Content-type: text/html; charset=utf-8 \r\n"; 
 	$headers .= "From: CallMe 1.7.2 <".$from.">\r\n"; 

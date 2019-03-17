@@ -98,12 +98,42 @@
                                 </form>
                             </div>
                         </form>
+
+                        <div class="product-alerts">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-whatever="Консультация">
+                                        <i class="fa fa-thumbs-up fa-lg"></i> Консультация +7 (861) 217-59-54
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                    <div class="alertymes4" data-toggle="modal" data-target="#shop-popup" data-whatever="Нашли дешевле?">
+                                        <i class="fa fa-thumbs-up fa-lg"></i> Нашли дешевле? Сделаем скидку!
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-whatever="Быстрая доставка">
+                                        <i class="fa fa-truck fa-lg"></i> Быстрая доставка
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-whatever="Купить в 1 клик">
+                                        <i class="fa fa-thumbs-up fa-lg"></i> Купить в 1 клик
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="product-cart-option">
                             <ul>
                                 <li><a href="#" class="add_to_compare" data-id="{$product->id}"><i class="fa fa-link"></i><span>Добавить в сравнение</span></a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i><span>Заказать звонок</span></a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#shop-popup" data-whatever="Заказать звонок!"><i class="fa fa-envelope"></i><span>Заказать звонок</span></a></li>
                             </ul>
                         </div>
+
                         <div class="short-description">
                             <div class="page-title">
                                 <h2>Характеристики</h2>

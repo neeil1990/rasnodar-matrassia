@@ -604,6 +604,36 @@ jQuery(document).ready(function() {
         return false;
     });
 
+    $('input[autocomplete="tel"]').mask('+7(999) 999 99 99');
+
+    $('#shop-popup').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) ;
+        var recipient = button.data('whatever');
+
+        var modal = $(this);
+
+        modal.find('form').submit(function(){
+            jQuery.getJSON("/callme/index.php",
+                $.extend(getFormData($(this)), {url: location.href})
+                , function(i) {
+                    if(i.result == "success"){
+                        $(modal).modal('hide');
+                        var success = $('#success');
+                        success.find('.modal-body .alert').text(i.message);
+                        success.modal('show');
+                        setTimeout(function(){
+                            success.modal('hide');
+                        }, 5000);
+                    }else{
+                        $(modal).modal('hide');
+                        alertify.error('Ошибка отправки!');
+                    }
+            });
+            return false;
+        });
+        modal.find('.modal-title').text(recipient);
+    });
+
 
     $(window).scroll(function() {
         if($(this).width() >= 768){
@@ -635,6 +665,17 @@ jQuery(function(){
         }
     });
 });
+
+function getFormData($form){
+    var unindexed_array = $form.serializeArray();
+    var indexed_array = {};
+
+    $.map(unindexed_array, function(n, i){
+        indexed_array[n['name']] = n['value'];
+    });
+
+    return indexed_array;
+}
 
 
 

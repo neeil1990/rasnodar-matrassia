@@ -5917,6 +5917,11 @@ ul.products-list .cart-button i {
 	border-bottom: 1px solid #e5e5e5;
 	text-transform: uppercase;
 }
+
+.product-view-area .product-alerts{
+	margin: 10px auto;
+}
+
 .product-view-area .short-description {
 	font-size: 12px;
 	padding-top: 12px;

@@ -140,7 +140,7 @@
 								</div>
 							</div>
 							<div class="order-call">
-								<a href="#">Заказать звонок!</a>
+								<a href="#" data-toggle="modal" data-target="#shop-popup" data-whatever="Заказать звонок!">Заказать звонок!</a>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-3">
@@ -357,6 +357,8 @@
 	<!-- End Footer -->
 </div>
 
+{include file="popup.tpl"}
+
 <!-- JS -->
 
 <!-- jquery js -->
@@ -383,6 +385,9 @@
 <!-- alertify js -->
 <script src="design/{$settings->theme|escape}/js/alertifyjs/alertify.min.js"></script>
 
+<!-- maskinput js -->
+<script src="design/{$settings->theme|escape}/js/jquery.maskinput.js"></script>
+
 <!-- main js -->
 <script src="design/{$settings->theme|escape}/js/main.js"></script>
 
@@ -393,6 +398,8 @@
 <script src="design/{$settings->theme|escape}/js/revolution-slider.js"></script>
 
 <script src="design/{$settings->theme|escape}/js/filter.min.js"></script>
+
+
 
 {* Автозаполнитель поиска *}
 {literal}

@@ -21,7 +21,17 @@
                     <a title="{$product->name|escape}" href="products/{$product->url}">{$product->name|escape} </a>
                 </div>
                 <div class="item-content">
-                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                    <div class="rating">
+                    {if $product->middle_rating}
+                        {for $stars=1 to 5}
+                            {if $stars <= $product->middle_rating}
+                                <i class="fa fa-star"></i>
+                            {else}
+                                <i class="fa fa-star-o"></i>
+                            {/if}
+                        {/for}
+                    {/if}
+                    </div>
                     <div class="item-price">
                         <div class="price-box">
                             {if $product->variant->compare_price > 0}

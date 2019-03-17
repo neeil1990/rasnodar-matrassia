@@ -298,7 +298,20 @@ class ProductsView extends View
 					$product->variant = $product->variants[0];
 				if(isset($product->images[0]))
 					$product->image = $product->images[0];
+
+				// Отзывы о товаре
+				$comments = $this->comments->get_comments(array('type'=>'product', 'object_id'=>$product->id, 'approved'=>1, 'ip'=>$_SERVER['REMOTE_ADDR']));
+
+				if(count($comments) > 0){
+					$ratings = array_count_values(array_column($comments, 'rating'));
+					foreach($ratings as $star => &$count){
+						$count = $star*$count;
+					}
+					$product->middle_rating = round(array_sum($ratings) / array_sum(array_count_values(array_column($comments, 'rating'))));
+				}
 			}
+
+
 
 			$properties = $this->features->get_product_options($products_ids);
 			foreach($properties as $property)

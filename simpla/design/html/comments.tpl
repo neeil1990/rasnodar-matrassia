@@ -55,9 +55,45 @@
 					{$comment->name|escape}
 					<a class="approve" href="#">Одобрить</a>
 					</div>
+
+					{if $comment->rating}
+						<h4>Рейтинг:</h4>
+						<div class="comment_text">
+							{$comment->rating} Звезд(ы)!
+						</div>
+						<br>
+					{/if}
+
+					{if $comment->pluses_text}
+					<h4>Плюсы:</h4>
 					<div class="comment_text">
-					{$comment->text|escape|nl2br}
+						{$comment->pluses_text|escape|nl2br}
 					</div>
+					<br>
+					{/if}
+
+					{if $comment->minuses_text}
+					<h4>Минусы:</h4>
+					<div class="comment_text">
+						{$comment->minuses_text|escape|nl2br}
+					</div>
+					<br>
+					{/if}
+
+					{if $comment->text}
+					<h4>Отзыв:</h4>
+					<div class="comment_text">
+						{$comment->text|escape|nl2br}
+					</div>
+					<br>
+					{/if}
+
+					{if $comment->image}
+					<div class="comment_text">
+						<img src="{$comment->image|resize:300:300}">
+					</div>
+					{/if}
+
 					<div class="comment_info">
 					Комментарий оставлен {$comment->date|date} в {$comment->date|time}
 					{if $comment->type == 'product'}

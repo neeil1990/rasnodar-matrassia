@@ -54,20 +54,19 @@ class ProductView extends View
 		if ($this->request->method('post') && $this->request->post('comment'))
 		{
 			$comment = new stdClass;
+			$comment->rating = $this->request->post('rating');
 			$comment->name = $this->request->post('name');
+			$comment->pluses_text = $this->request->post('pluses_text');
+			$comment->minuses_text = $this->request->post('minuses_text');
 			$comment->text = $this->request->post('text');
-			$captcha_code =  $this->request->post('captcha_code', 'string');
-			
+			$comment->image = $this->request->files('image');
+
 			// Передадим комментарий обратно в шаблон - при ошибке нужно будет заполнить форму
 			$this->design->assign('comment_text', $comment->text);
 			$this->design->assign('comment_name', $comment->name);
 			
-			// Проверяем капчу и заполнение формы
-			if ($_SESSION['captcha_code'] != $captcha_code || empty($captcha_code))
-			{
-				$this->design->assign('error', 'captcha');
-			}
-			elseif (empty($comment->name))
+			// Проверяем заполнение формы
+			if (empty($comment->name))
 			{
 				$this->design->assign('error', 'empty_name');
 			}
@@ -86,7 +85,12 @@ class ProductView extends View
 				$this->db->query("SELECT 1 FROM __comments WHERE approved=1 AND ip=? LIMIT 1", $comment->ip);
 				if($this->db->num_rows()>0)
 					$comment->approved = 1;
-				
+
+				if(isset($comment->image['name']) && $comment->image['name'])
+					$comment->image = $this->image->upload_image($comment->image['tmp_name'], $comment->image['name']);
+				else
+					unset($comment->image);
+
 				// Добавляем комментарий в базу
 				$comment_id = $this->comments->add_comment($comment);
 				
@@ -141,15 +145,24 @@ class ProductView extends View
 
 		// Отзывы о товаре
 		$comments = $this->comments->get_comments(array('type'=>'product', 'object_id'=>$product->id, 'approved'=>1, 'ip'=>$_SERVER['REMOTE_ADDR']));
-		
+
+		if(count($comments) > 0){
+			$ratings = array_count_values(array_column($comments, 'rating'));
+			foreach($ratings as $star => &$count){
+				$count = $star*$count;
+			}
+			$middle_rating = round(array_sum($ratings) / array_sum(array_count_values(array_column($comments, 'rating'))));
+		}
+
 		// Соседние товары
 		$this->design->assign('next_product', $this->products->get_next_product($product->id));
 		$this->design->assign('prev_product', $this->products->get_prev_product($product->id));
 
 		// И передаем его в шаблон
 		$this->design->assign('product', $product);
+		$this->design->assign('middle_rating', $middle_rating);
 		$this->design->assign('comments', $comments);
-		
+
 		// Категория и бренд товара
 		$product->categories = $this->categories->get_categories(array('product_id'=>$product->id));
 		$this->design->assign('brand', $this->brands->get_brand(intval($product->brand_id)));		

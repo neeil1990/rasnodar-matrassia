@@ -64,10 +64,20 @@
                             <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> {$product->variant->compare_price|convert} {$currency->sign|escape}</span> </p>
                             {/if}
                         </div>
+                        {if $middle_rating}
                         <div class="ratings">
-                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                            <p class="rating-links"> <a href="#">1 Review(s)</a> <span class="separator">|</span> <a href="#">Add Your Review</a> </p>
+                            <div class="rating">
+                                {for $stars=1 to 5}
+                                    {if $stars <= $middle_rating}
+                                        <i class="fa fa-star"></i>
+                                    {else}
+                                        <i class="fa fa-star-o"></i>
+                                    {/if}
+                                {/for}
+                            </div>
+                            <p class="rating-links"> <a href="#">{count($comments)} Отзыва(ов)</a> </p>
                         </div>
+                        {/if}
                         <form class="js-buyform variants2" name="buy_form" action="cart">
                             <div class="product-color-size-area">
                                 <div class="size-area">
@@ -173,12 +183,158 @@
                             <div class="product-tab-inner">
                                 <ul id="product-detail-tab" class="nav nav-tabs product-tabs">
                                     <li class="active"> <a href="#description" data-toggle="tab"> Описание </a> </li>
+                                    <li> <a href="#reviews" data-toggle="tab">Отзывы</a> </li>
                                     <li> <a href="#delivery" data-toggle="tab">Доставка</a> </li>
                                 </ul>
                                 <div id="productTabContent" class="tab-content">
                                     <div class="tab-pane fade in active" id="description">
                                         <div class="std">
                                             {$product->body}
+                                        </div>
+                                    </div>
+                                    <div id="reviews" class="tab-pane fade">
+
+
+                                        {if $comments}
+
+                                            <div class="single-box">
+
+                                                <div class="comment-list">
+                                                    <ul>
+                                                        {foreach $comments as $comment}
+                                                        <li>
+                                                            <div class="avartar">
+                                                                <img src="design/{$settings->theme|escape}/images/avatar.png" alt="Avatar"> </div>
+                                                            <div class="comment-body">
+                                                                <div class="comment-meta">
+                                                                    <span class="author"><a href="#">{$comment->name|escape}</a></span>
+                                                                    <span class="date">{$comment->date|date}, {$comment->date|time}</span>
+                                                                </div>
+                                                                {if $comment->rating}
+                                                                <div class="ratings">
+                                                                    <div class="rating">
+                                                                        {for $stars=1 to 5}
+                                                                            {if $stars <= $comment->rating}
+                                                                                <i class="fa fa-star"></i>
+                                                                            {else}
+                                                                                <i class="fa fa-star-o"></i>
+                                                                            {/if}
+                                                                        {/for}
+                                                                    </div>
+                                                                    <p class="rating-links">
+                                                                        <a href="#">Рейтинг товара</a>
+                                                                    </p>
+                                                                </div>
+                                                                {/if}
+                                                                <div class="comment">
+                                                                    {if !$comment->approved}
+                                                                        <div class="alert alert-success" role="alert">Ожидает модерации</div>
+                                                                    {/if}
+
+                                                                    {if $comment->pluses_text}
+                                                                        <h5>Плюсы</h5>
+                                                                        <p>{$comment->pluses_text|escape|nl2br}</p>
+                                                                        <br>
+                                                                    {/if}
+
+                                                                    {if $comment->minuses_text}
+                                                                        <h5>Минусы</h5>
+                                                                        <p>{$comment->minuses_text|escape|nl2br}</p>
+                                                                        <br>
+                                                                    {/if}
+
+                                                                    {if $comment->text}
+                                                                        <h5>Отзыв</h5>
+                                                                        <p>{$comment->text|escape|nl2br}</p>
+                                                                        <br>
+                                                                    {/if}
+
+
+                                                                    {if $comment->image}
+                                                                    <div class="row">
+                                                                        <div class="col-xs-6 col-md-3">
+                                                                            <a href="{$comment->image|resize:800:600}" target="_blank" class="thumbnail">
+                                                                                <img src="{$comment->image|resize:250:250}" alt="{$comment->name|escape}">
+                                                                            </a>
+                                                                        </div>
+                                                                    </div>
+                                                                    {/if}
+
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        {/foreach}
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        {/if}
+
+                                        <div class="col-sm-12 col-lg-12 col-md-12">
+                                            <div class="best-title text-left">
+                                                <h2>Оставить отзыв</h2>
+                                            </div>
+
+                                            <div class="reviews-content-right">
+                                                <br>
+                                                <form enctype="multipart/form-data" method="post">
+                                                    {if $error}
+                                                        <div class="alert alert-danger" role="alert">
+                                                            <i class="fa fa-exclamation-circle fa-lg"></i>
+                                                            {if $error=='empty_name'}
+                                                            Введите имя
+                                                            {elseif $error=='empty_comment'}
+                                                            Введите комментарий
+                                                            {/if}
+                                                        </div>
+                                                    {/if}
+                                                    <div class="reviews-table">
+                                                        <table>
+                                                            <tbody>
+                                                            <tr>
+                                                                <th>1 звезда</th>
+                                                                <th>2 звезды</th>
+                                                                <th>3 звезды</th>
+                                                                <th>4 звезды</th>
+                                                                <th>5 звезд</th>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><input name="rating" type="radio" value="1"></td>
+                                                                <td><input name="rating" type="radio" value="2"></td>
+                                                                <td><input name="rating" type="radio" value="3"></td>
+                                                                <td><input name="rating" type="radio" value="4"></td>
+                                                                <td><input name="rating" type="radio" value="5" checked="checked"></td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="form-area">
+                                                        <div class="form-element">
+                                                            <label>Ваше имя <em>*</em></label>
+                                                            <input type="text" name="name" placeholder="Ваше имя" value="{$comment_name}">
+                                                        </div>
+                                                        <div class="form-element">
+                                                            <label>Плюсы <em>*</em></label>
+                                                            <input type="text" name="pluses_text" placeholder="Преимущества" value="{$comment_pluses_text}">
+                                                        </div>
+                                                        <div class="form-element">
+                                                            <label>Минусы <em>*</em></label>
+                                                            <input type="text" name="minuses_text" placeholder="Недостатки" value="{$comment_minuses_text}">
+                                                        </div>
+                                                        <div class="form-element">
+                                                            <label>Отзыв <em>*</em></label>
+                                                            <textarea name="text">{$comment_text}</textarea>
+                                                        </div>
+                                                        <div class="form-element">
+                                                            <label>Фото вашего товара </label>
+                                                            <input type="file" name="image">
+                                                        </div>
+                                                        <div class="buttons-set">
+                                                            <button class="button submit" name="comment" title="Оставить отзыв" type="submit" value="Отправить"><span><i class="fa fa-thumbs-up"></i> &nbsp;Оставить отзыв</span></button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="delivery">

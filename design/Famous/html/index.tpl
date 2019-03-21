@@ -404,6 +404,7 @@
 {* Автозаполнитель поиска *}
 {literal}
 	<script src="js/autocomplete/jquery.autocomplete-min.js" type="text/javascript"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	<style>
 		.autocomplete-suggestions

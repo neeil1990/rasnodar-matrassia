@@ -61,12 +61,26 @@ class ProductView extends View
 			$comment->text = $this->request->post('text');
 			$comment->image = $this->request->files('image');
 
+			$g_recaptcha_response = $this->request->post('g-recaptcha-response');
+
 			// Передадим комментарий обратно в шаблон - при ошибке нужно будет заполнить форму
 			$this->design->assign('comment_text', $comment->text);
 			$this->design->assign('comment_name', $comment->name);
-			
+
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_URL, "https://www.google.com/recaptcha/api/siteverify?secret=6LdEGpkUAAAAAA_rSBxPEwOUVBJtMY67_ztRz91A&response=$g_recaptcha_response&remoteip=$_SERVER[REMOTE_ADDR]");
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_TIMEOUT, 15);
+			curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36");
+			$curlRecaptcha = curl_exec($curl);
+			curl_close($curl);
+
 			// Проверяем заполнение формы
-			if (empty($comment->name))
+			if(isset(json_decode($curlRecaptcha)->success) && json_decode($curlRecaptcha)->success == false)
+			{
+				$this->design->assign('error', 'empty_captcha');
+			}
+			elseif (empty($comment->name))
 			{
 				$this->design->assign('error', 'empty_name');
 			}
@@ -96,9 +110,8 @@ class ProductView extends View
 				
 				// Отправляем email
 				$this->notify->email_comment_admin($comment_id);				
-				
+
 				// Приберем сохраненную капчу, иначе можно отключить загрузку рисунков и постить старую
-				unset($_SESSION['captcha_code']);
 				header('location: '.$_SERVER['REQUEST_URI'].'#comment_'.$comment_id);
 			}			
 		}

@@ -282,9 +282,11 @@
                                                         <div class="alert alert-danger" role="alert">
                                                             <i class="fa fa-exclamation-circle fa-lg"></i>
                                                             {if $error=='empty_name'}
-                                                            Введите имя
+                                                                Введите имя
+                                                            {elseif $error=='empty_captcha'}
+                                                                Укажите галочку что вы не робот
                                                             {elseif $error=='empty_comment'}
-                                                            Введите комментарий
+                                                                Введите комментарий
                                                             {/if}
                                                         </div>
                                                     {/if}
@@ -328,6 +330,10 @@
                                                         <div class="form-element">
                                                             <label>Фото вашего товара </label>
                                                             <input type="file" name="image">
+                                                        </div>
+                                                        <div class="form-element">
+                                                            <label>Проверка </label>
+                                                            <div class="g-recaptcha" data-sitekey="6LdEGpkUAAAAAIHWxn3qzWWUsQOBMA4jRcijT80a"></div>
                                                         </div>
                                                         <div class="buttons-set">
                                                             <button class="button submit" name="comment" title="Оставить отзыв" type="submit" value="Отправить"><span><i class="fa fa-thumbs-up"></i> &nbsp;Оставить отзыв</span></button>

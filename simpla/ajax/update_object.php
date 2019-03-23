@@ -43,6 +43,10 @@ switch ($object)
     	if($simpla->managers->access('blog'))
         $result = $simpla->blog->update_post($id, $values);
         break;
+    case 'offer':
+        if($simpla->managers->access('offer'))
+            $result = $simpla->offer->update_post($id, $values);
+        break;
     case 'delivery':
     	if($simpla->managers->access('delivery'))
         $result = $simpla->delivery->update_delivery($id, $values);

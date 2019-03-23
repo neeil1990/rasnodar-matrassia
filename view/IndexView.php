@@ -73,9 +73,8 @@ class IndexView extends View
 		if (!$content = $this->main->fetch())
 		{
 			return false;
-		}		
+		}
 
-		
 		// Передаем основной блок в шаблон
 		$this->design->assign('content', $content);	
 		

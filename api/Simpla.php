@@ -27,6 +27,7 @@ class Simpla
 		'money'      => 'Money',
 		'pages'      => 'Pages',
 		'blog'       => 'Blog',
+		'offer'       => 'Offer',
 		'cart'       => 'Cart',
 		'image'      => 'Image',
 		'delivery'   => 'Delivery',

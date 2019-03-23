@@ -1,2 +1,3 @@
 add table s_comments "pluses_text","minuses_text","rating","image";
 add table s_variants "width","height","color";
+add table s_offer

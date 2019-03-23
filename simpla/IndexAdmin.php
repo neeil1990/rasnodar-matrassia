@@ -29,6 +29,8 @@ class IndexAdmin extends Simpla
 		'CouponAdmin'         => 'coupons',
 		'PagesAdmin'          => 'pages',
 		'PageAdmin'           => 'pages',
+		'OfferAdmin'          => 'offer',
+		'PostOfferAdmin'      => 'offer',
 		'BlogAdmin'           => 'blog',
 		'PostAdmin'           => 'blog',
 		'CommentsAdmin'       => 'comments',

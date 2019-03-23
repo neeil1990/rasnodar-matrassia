@@ -33,8 +33,6 @@ $view = new IndexView();
 
 
 
-
-
 if(isset($_GET['logout']))
 
 {

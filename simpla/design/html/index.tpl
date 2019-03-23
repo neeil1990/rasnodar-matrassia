@@ -59,6 +59,10 @@
 	{if in_array('blog', $manager->permissions)}
 		<li><a href="index.php?module=BlogAdmin"><img src="design/images/menu/blog.png"><b>Блог</b></a></li>
 	{/if}
+
+	{if in_array('offer', $manager->permissions)}
+		<li><a href="index.php?module=OfferAdmin"><img src="design/images/menu/offer.png"><b>Акции</b></a></li>
+	{/if}
 		
 	{if in_array('comments', $manager->permissions)}
 		<li><a href="index.php?module=CommentsAdmin"><img src="design/images/menu/comments.png"><b>Комментарии</b></a>

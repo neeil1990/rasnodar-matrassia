@@ -30,9 +30,9 @@ class ProductView extends View
 			return false;
 		
 		$product->images = $this->products->get_images(array('product_id'=>$product->id));
-		foreach($product->images as &$image){
+		foreach($product->images as $key => $image){
 			if(!file_exists($_SERVER['DOCUMENT_ROOT']."/files/originals/".$image->filename)){
-				unset($image);
+				unset($product->images[$key]);
 			}
 		}
 		$product->image = reset($product->images);

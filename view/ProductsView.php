@@ -292,7 +292,7 @@ class ProductsView extends View
 			$images = $this->products->get_images(array('product_id'=>$products_ids));
 			foreach($images as $key => $image){
 				if(!file_exists($_SERVER['DOCUMENT_ROOT']."/files/originals/".$image->filename)){
-					unset($images[$key]);
+					$image->filename = "default.png";
 				}
 			}
 

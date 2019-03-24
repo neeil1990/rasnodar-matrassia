@@ -73,6 +73,11 @@
                                             <input class="input_captcha form-control" id="comment_captcha" type="text" name="captcha_code" value="" data-format="\d\d\d\d" data-notice="Введите капчу"/>
                                         </div>
                                     </div>
+                                    <div class="agree_block">
+                                        <input type="checkbox" id="agree_checkbox" class="agree_checkbox" checked="checked" required>
+                                        <label for="agree_checkbox">Я принимаю условия политики конфиденциальности</label>
+                                        <a class="agree_link" href="/politika-konfidentsialnosti">Политика конфиденциальности</a>
+                                    </div>
                                     <div class="form-selector">
                                         <button type="submit" value="Отправить" name="feedback" class="button"><i class="icon-paper-plane icons"></i>&nbsp; <span>Отправить</span></button>
                                     </div>

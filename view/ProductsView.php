@@ -28,6 +28,7 @@ class ProductsView extends View
 		$brand_url    = $this->request->get('brand', 'string');
 		$brand_id	  = $this->request->get('brand_id');
 
+
 		$filter = array();
 		$filter['visible'] = 1;
 		$filter['brand_id'] = array();

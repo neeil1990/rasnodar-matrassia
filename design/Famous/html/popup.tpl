@@ -23,6 +23,11 @@
                         </div>
                 </div>
                 <div class="modal-footer">
+                    <div class="agree_block">
+                        <input type="checkbox" id="agree_checkbox" class="agree_checkbox" checked="checked" required>
+                        <label for="agree_checkbox">Я принимаю условия политики конфиденциальности</label>
+                        <a class="agree_link" href="/politika-konfidentsialnosti">Политика конфиденциальности</a>
+                    </div>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
                     <button type="submit" class="btn btn-primary">Отправить сообщение</button>
                 </div>

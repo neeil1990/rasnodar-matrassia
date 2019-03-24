@@ -107,57 +107,21 @@
                     </div>
                     {include file='pagination.tpl'}
                 </div>
+                {if $current_page_num==1}
+                    <div class="description-bottom">
+                        {* Описание страницы (если задана) *}
+                        {$page->body}
+                        {* Описание бренда *}
+                        {if $brand && !$category}
+                            {$brand->description}
+                        {/if}
+                        {* Описание категории *}
+                        {$category->description}
+                    </div>
+                {/if}
             </div>
             <aside class="sidebar col-sm-3 col-xs-12 col-sm-pull-9">
-                <div class="block category-sidebar">
-                    <div class="sidebar-title">
-                        <h3>Categories</h3>
-                    </div>
-                    <ul class="product-categories">
-                        <li class="cat-item current-cat cat-parent"><a href= "shop_grid.html">Women</a>
-                            <ul class="children">
-                                <li class="cat-item cat-parent"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Accessories</a>
-                                    <ul class="children">
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Dresses</a></li>
-                                        <li class="cat-item cat-parent"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Handbags</a>
-                                            <ul  class="children">
-                                                <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Beaded Handbags</a></li>
-                                                <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Sling bag</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="cat-item cat-parent"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Handbags</a>
-                                    <ul class="children">
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; backpack</a></li>
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Beaded Handbags</a></li>
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Fabric Handbags</a></li>
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Sling bag</a></li>
-                                    </ul>
-                                </li>
-                                <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Jewellery</a> </li>
-                                <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Swimwear</a> </li>
-                            </ul>
-                        </li>
-                        <li class="cat-item cat-parent"><a href="shop_grid.html">Men</a>
-                            <ul class="children">
-                                <li class="cat-item cat-parent"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Dresses</a>
-                                    <ul class="children">
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Casual</a></li>
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Designer</a></li>
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Evening</a></li>
-                                        <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Hoodies</a></li>
-                                    </ul>
-                                </li>
-                                <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Jackets</a> </li>
-                                <li class="cat-item"><a href="shop_grid.html"><i class="fa fa-angle-right"></i>&nbsp; Shoes</a> </li>
-                            </ul>
-                        </li>
-                        <li class="cat-item"><a href="shop_grid.html">Electronics</a></li>
-                        <li class="cat-item"><a href="shop_grid.html">Furniture</a></li>
-                        <li class="cat-item"><a href="shop_grid.html">KItchen</a></li>
-                    </ul>
-                </div>
+                {if $category->brands || $features}
                 <div class="block shop-by-side">
                     <div class="sidebar-bar-title">
                         <h3>Категории</h3>
@@ -189,6 +153,7 @@
                         </div>
                     </div>
                 </div>
+                {/if}
 
                 {if $category->brands || $features}
                     <div id="filter">{include file='filter.tpl'}</div>

@@ -76,8 +76,7 @@
                     <div class="toolbar">
                         <div class="view-mode">
                             <ul>
-                                <li class="active"> <a href="shop_grid.html"> <i class="fa fa-th-large"></i> </a> </li>
-                                <li> <a href="shop_list.html"> <i class="fa fa-th-list"></i> </a> </li>
+                                <li class="active"> <a href="#"> <i class="fa fa-th-large"></i> </a> </li>
                             </ul>
                         </div>
                         <div class="sorter">

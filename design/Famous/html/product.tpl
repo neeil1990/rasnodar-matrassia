@@ -13,9 +13,7 @@
                     {foreach from=$category->path key=inc item=cat}
                             <li><a href="catalog/{$cat->url}">{$cat->name|escape}</a><span>&raquo;</span></li>
                     {/foreach}
-                    {if $brand}
-                        <li><a href="catalog/{$cat->url}/{$brand->url}">{$brand->name|escape}</a><span>&raquo;</span></li>
-                    {/if}
+                   
                     <li><strong>{$product->name|escape}</strong></li>
                 </ul>
             </div>

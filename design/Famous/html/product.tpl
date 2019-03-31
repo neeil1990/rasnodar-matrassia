@@ -221,7 +221,7 @@
                                                                     <span class="date" itemprop="datePublished" content="{$comment->date|date}">{$comment->date|date}, {$comment->date|time}</span>
                                                                 </div>
                                                                 {if $comment->rating}
-                                                                <div class="ratings">
+                                                                <div class="ratings" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
                                                                     <div class="rating">
                                                                         {for $stars=1 to 5}
                                                                             {if $stars <= $comment->rating}

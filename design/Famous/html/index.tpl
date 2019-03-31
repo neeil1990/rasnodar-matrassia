@@ -271,6 +271,7 @@
 			<div class="row">
 				<div class="col-sm-6 col-md-3 col-xs-12">
 					<div class="footer-logo"><a href="index.html"><img src="design/{$settings->theme|escape}/images/footer-logo.png" alt="fotter logo"></a> </div>
+					<p><i class="fa fa-map-marker" aria-hidden="true"></i> <b>{$settings->company_name|escape}</b></p>
 					<p>Ортопедические матрасы. Кровати. Шкафы-купе. Мебель для спальни и гостиной.</p>
 					<p><a style="color: #999;" href="tel:+78612175954">+7 (861) 217-59-54</a></p>
 					<div class="social">

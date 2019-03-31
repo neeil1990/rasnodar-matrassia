@@ -216,7 +216,7 @@
                                                             <div class="comment-body">
                                                                 <div class="comment-meta">
                                                                     <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                                                                        <a href="#" itemprop="name">{$comment->name|escape}</a>
+                                                                        <a href="#" itemprop="name" content="{$comment->name|escape}">{$comment->name|escape}</a>
                                                                     </span>
                                                                     <span class="date" itemprop="datePublished" content="{$comment->date|date}">{$comment->date|date}, {$comment->date|time}</span>
                                                                 </div>
@@ -255,7 +255,7 @@
                                                                     {/if}
 
                                                                     {if $comment->text}
-                                                                        <h5>Отзыв</h5>
+                                                                        <h5 itemprop="itemreviewed">Отзыв</h5>
                                                                         <p itemprop="reviewBody">{$comment->text|escape|nl2br}</p>
                                                                         <br>
                                                                     {/if}

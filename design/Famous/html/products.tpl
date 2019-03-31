@@ -66,7 +66,7 @@
                     <div class="page-title">
                         {* Заголовок страницы *}
                         {if $keyword}
-                            <h1>Поиск {$keyword|escape}</h1>
+                            <h1>Результаты поиска по фразе "{$keyword|escape}" в мебельном интернет - магазине Матрассия</h1>
                         {elseif $page}
                             <h2>{$page->name|escape}</h2>
                         {else}

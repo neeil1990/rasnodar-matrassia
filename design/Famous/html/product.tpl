@@ -27,13 +27,14 @@
     <div class="container">
         <div class="row">
             <div class="col-main">
-                <div class="product-view-area">
+                <div class="product-view-area" itemscope itemtype="http://schema.org/Product">
+                    <meta itemprop="availability" href="http://schema.org/InStock" content="В наличии">
                     {if $product->images}
                         <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
                             <div class="icon-sale-label sale-left">Sale</div>
                             <div class="large-image">
                                 {if $product->image}
-                                <a href="{$product->image->filename|resize:400:400}" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
+                                <a href="{$product->image->filename|resize:400:400}" itemprop="image" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
                                     <img class="zoom-img" src="{$product->image->filename|resize:400:400}" alt="{$product->name|escape}">
                                 </a>
                                 {/if}
@@ -42,7 +43,7 @@
                                 <ul class="previews-list slides">
                                     {foreach $product->images as $i=>$image}
                                     <li>
-                                        <a href='{$image->filename|resize:400:400}' class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '{$image->filename|resize:400:400}' ">
+                                        <a href='{$image->filename|resize:400:400}' itemprop="image" class='cloud-zoom-gallery' rel="useZoom: 'zoom1', smallImage: '{$image->filename|resize:400:400}' ">
                                             <img src="{$image->filename|resize:80:80}" alt = "{$product->name|escape}"/>
                                         </a>
                                     </li>
@@ -54,16 +55,17 @@
                     {/if}
                     <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 prod product-details-area">
                         <div class="product-name">
-                            <h1>{$product->name|escape}</h1>
+                            <h1 itemprop="name">{$product->name|escape}</h1>
                         </div>
-                        <div class="price-box">
-                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> {$product->variant->price|convert} {$currency->sign|escape}</span> </p>
+                        <div class="price-box" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price" itemprop="price" content="{$product->variant->price}"> {$product->variant->price|convert} {$currency->sign|escape}</span> </p>
                             {if $product->variant->compare_price > 0}
-                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> {$product->variant->compare_price|convert} {$currency->sign|escape}</span> </p>
+                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price" itemprop="price" content="{$product->variant->compare_price}"> {$product->variant->compare_price|convert} {$currency->sign|escape}</span> </p>
                             {/if}
+                            <meta itemprop="priceCurrency" content="RUB">
                         </div>
                         {if $middle_rating}
-                        <div class="ratings">
+                        <div class="ratings" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
                             <div class="rating">
                                 {for $stars=1 to 5}
                                     {if $stars <= $middle_rating}
@@ -73,7 +75,15 @@
                                     {/if}
                                 {/for}
                             </div>
-                            <p class="rating-links"> <a href="#">{count($comments)} Отзыва(ов)</a> </p>
+                            <meta itemprop="ratingValue" content="{$middle_rating}"/>
+                            <p class="rating-links">
+                                <a href="#">
+                                    <span itemprop="reviewCount">
+                                        {count($comments)}
+                                    </span>
+                                    Отзыва(ов)
+                                </a>
+                            </p>
                         </div>
                         {/if}
                         <form class="js-buyform variants2" name="buy_form" action="cart">
@@ -186,11 +196,11 @@
                                 </ul>
                                 <div id="productTabContent" class="tab-content">
                                     <div class="tab-pane fade in active" id="description">
-                                        <div class="std">
+                                        <div class="std" itemprop="description">
                                             {$product->body}
                                         </div>
                                     </div>
-                                    <div id="reviews" class="tab-pane fade">
+                                    <div id="reviews" class="tab-pane fade" itemprop="review" itemscope itemtype="http://schema.org/Review">
 
 
                                         {if $comments}
@@ -205,8 +215,10 @@
                                                                 <img src="design/{$settings->theme|escape}/images/avatar.png" alt="Avatar"> </div>
                                                             <div class="comment-body">
                                                                 <div class="comment-meta">
-                                                                    <span class="author"><a href="#">{$comment->name|escape}</a></span>
-                                                                    <span class="date">{$comment->date|date}, {$comment->date|time}</span>
+                                                                    <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+                                                                        <a href="#" itemprop="name">{$comment->name|escape}</a>
+                                                                    </span>
+                                                                    <span class="date" itemprop="datePublished" content="{$comment->date|date}">{$comment->date|date}, {$comment->date|time}</span>
                                                                 </div>
                                                                 {if $comment->rating}
                                                                 <div class="ratings">
@@ -219,6 +231,7 @@
                                                                             {/if}
                                                                         {/for}
                                                                     </div>
+                                                                    <meta itemprop="ratingValue" content="{$comment->rating}">
                                                                     <p class="rating-links">
                                                                         <a href="#">Рейтинг товара</a>
                                                                     </p>
@@ -243,7 +256,7 @@
 
                                                                     {if $comment->text}
                                                                         <h5>Отзыв</h5>
-                                                                        <p>{$comment->text|escape|nl2br}</p>
+                                                                        <p itemprop="reviewBody">{$comment->text|escape|nl2br}</p>
                                                                         <br>
                                                                     {/if}
 

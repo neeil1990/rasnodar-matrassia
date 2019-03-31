@@ -21,14 +21,23 @@
     </div>
 </div>
 <!-- Breadcrumbs End -->
-
+<meta itemprop="availability" href="http://schema.org/InStock" content="В наличии">
 <!-- Main Container -->
 <div class="main-container col1-layout">
-    <div class="container">
+    <div class="container" itemscope itemtype="http://schema.org/Product">
+        <meta itemprop="MPN" content="{$product->id}">
         <div class="row">
             <div class="col-main">
-                <div class="product-view-area" itemscope itemtype="http://schema.org/Product">
-                    <meta itemprop="availability" href="http://schema.org/InStock" content="В наличии">
+                <div class="product-view-area">
+
+                    {get_brands var=brand}
+                    {foreach $brand as $b}
+                        {if $b->id === $product->brand_id}
+                            <meta itemprop="brand" content="{$b->name}">
+                            {break}
+                        {/if}
+                    {/foreach}
+
                     {if $product->images}
                         <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
                             <div class="icon-sale-label sale-left">Sale</div>
@@ -53,11 +62,15 @@
                             <!-- end: more-images -->
                         </div>
                     {/if}
+
                     <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 prod product-details-area">
                         <div class="product-name">
                             <h1 itemprop="name">{$product->name|escape}</h1>
                         </div>
                         <div class="price-box" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                            <link itemprop="availability" href="http://schema.org/InStock"/>
+                            <meta itemprop="priceValidUntil" content="4019-01-01">
+                            <meta itemprop="url" content="{$smarty.server.REQUEST_SCHEME}://{$smarty.server.HTTP_HOST}/products/{$product->url|escape}">
                             <p class="special-price"> <span class="price-label">Special Price</span> <span class="price" itemprop="price" content="{$product->variant->price}"> {$product->variant->price|convert} {$currency->sign|escape}</span> </p>
                             {if $product->variant->compare_price > 0}
                             <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price" itemprop="price" content="{$product->variant->compare_price}"> {$product->variant->compare_price|convert} {$currency->sign|escape}</span> </p>
@@ -158,7 +171,7 @@
                             </div>
                             <table class="table table-bordered cart_summary">
                                 {foreach $product->features as $f}
-                                <tr>
+                                <tr itemprop="sku">
                                     <td>{$f->name}</td>
                                     <td data-title="E-Mail" >{$f->value}</td>
                                 </tr>

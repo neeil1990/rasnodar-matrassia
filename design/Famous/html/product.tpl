@@ -200,7 +200,7 @@
                                             {$product->body}
                                         </div>
                                     </div>
-                                    <div id="reviews" class="tab-pane fade" itemprop="review" itemscope itemtype="http://schema.org/Review">
+                                    <div id="reviews" class="tab-pane fade">
 
 
                                         {if $comments}
@@ -210,7 +210,7 @@
                                                 <div class="comment-list">
                                                     <ul>
                                                         {foreach $comments as $comment}
-                                                        <li>
+                                                        <li itemprop="review" itemscope itemtype="http://schema.org/Review">
                                                             <div class="avartar">
                                                                 <img src="design/{$settings->theme|escape}/images/avatar.png" alt="Avatar"> </div>
                                                             <div class="comment-body">

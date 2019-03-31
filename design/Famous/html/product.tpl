@@ -25,7 +25,7 @@
 <!-- Main Container -->
 <div class="main-container col1-layout">
     <div class="container" itemscope itemtype="http://schema.org/Product">
-        <meta itemprop="MPN" content="{$product->id}">
+        <meta itemprop="mpn" content="{$product->id}">
         <div class="row">
             <div class="col-main">
                 <div class="product-view-area">

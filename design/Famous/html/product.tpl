@@ -268,7 +268,7 @@
                                                                     {/if}
 
                                                                     {if $comment->text}
-                                                                        <h5 itemprop="itemreviewed">Отзыв</h5>
+                                                                        <h5 itemprop="itemReviewed">Отзыв</h5>
                                                                         <p itemprop="reviewBody">{$comment->text|escape|nl2br}</p>
                                                                         <br>
                                                                     {/if}

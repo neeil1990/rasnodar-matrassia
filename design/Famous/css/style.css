@@ -7261,7 +7261,8 @@ a.button-back:hover {
 }
 .about-page ul li {
 	display: block;
-	margin: 1.2em 0 0;
+	margin: 0.5em 1.5em;
+	list-style-type: disc;
 }
 .about-page ul li a {
 	color: #999;
@@ -7270,6 +7271,16 @@ a.button-back:hover {
 .about-page ul li a:hover {
 	color: #1577C7;
 	padding-left: 10px;
+}
+.about-page ul li:before {
+	background-color: #1577C7;
+	border-radius: 50%;
+	content: "";
+	display: inline-block;
+	height: 5px;
+	width: 5px;
+	vertical-align: middle;
+	margin-right: 5px;
 }
 .about-page .fa-arrow-right {
 	font-size: 12px;

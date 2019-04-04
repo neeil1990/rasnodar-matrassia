@@ -39,7 +39,7 @@
                     <div class="custom_select">
                         <select class="input form-control" name="height" id="variants_height">
                             {foreach $variants_height as $h}
-                                <option value="{$h->height}" {if $smarty.get.height == $h->height}selected{/if}>{$h->height}</option>
+                                <option value="{$h->height}" {if $filter.height == $h->height}selected{/if}>{$h->height}</option>
                             {/foreach}
                         </select>
                     </div><br>
@@ -49,7 +49,7 @@
                 <div class="custom_select">
                     <select class="input form-control" name="width" id="variants_width">
                         {foreach $variants_width as $w}
-                            <option value="{$w->width}" {if $smarty.get.width == $w->width}selected{/if}>{$w->width}</option>
+                            <option value="{$w->width}" {if $filter.width == $w->width}selected{/if}>{$w->width}</option>
                         {/foreach}
                     </select>
                 </div>

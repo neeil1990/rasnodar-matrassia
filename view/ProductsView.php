@@ -125,6 +125,17 @@ class ProductsView extends View
 		// Свойства товаров
 		if(!empty($category))
 		{
+			if(isset($category->parent_id) && $category->parent_id){
+				$parent_cat = $this->categories->get_category((int)$category->parent_id);
+				if(is_object($parent_cat) && $parent_cat->url == "size"){
+					$arSize = explode("x",$category->url,2);
+					if(count($arSize) > 1){
+						$filter['width'] = $arSize[1];
+						$filter['height'] = $arSize[0];
+					}
+				}
+			}
+
 			$features = array();
 			$filter['features'] = array();
 			foreach($this->features->get_features(array('category_id'=>$category->id, 'in_filter'=>1)) as $feature)
@@ -326,6 +337,7 @@ class ProductsView extends View
 
             //echo "<pre>" . print_r($products, 1) . "<pre>";
 
+			$this->design->assign('filter', $filter);
 			$this->design->assign('products', $products);
  		}
 

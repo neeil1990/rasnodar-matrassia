@@ -49,13 +49,12 @@
                             {* Не показывать выбор варианта, если он один и без названия *}
                             <select class="input form-control" name="variant" {if $product->variants|count==1  && !$product->variant->name}style='display:none;'{/if}>
                                 {foreach $product->variants as $v}
-								{var_dump($smarty.get.width, $v->width, $smarty.get.height, $v->height)}
                                     <option value="{$v->id}"
                                             {if $v->compare_price > 0}compare_price="{$v->compare_price|convert}"
                                             discount="{($v->compare_price-$v->price)|convert}"{/if}
                                             price="{$v->price|convert}"
-                                            {if $smarty.get.width == $v->width && $smarty.get.height == $v->height && $v->width != 0 && $v->height != 0}selected{/if}
-                                            {if $smarty.get.color == $v->color && $v->color != 0}selected{/if}
+                                            {if $filter.width == $v->width && $filter.height == $v->height && $v->width != 0 && $v->height != 0}selected{/if}
+                                            {if $filter.color == $v->color && $v->color != 0}selected{/if}
                                             >
                                         {$v->name}
                                     </option>

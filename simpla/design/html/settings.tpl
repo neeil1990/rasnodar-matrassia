@@ -41,6 +41,7 @@
 				<li><label class=property>Имя компании</label><input name="company_name" class="simpla_inp" type="text" value="{$settings->company_name|escape}" /></li>
 				<li><label class=property>Формат даты</label><input name="date_format" class="simpla_inp" type="text" value="{$settings->date_format|escape}" /></li>
 				<li><label class=property>Email для восстановления пароля</label><input name="admin_email" class="simpla_inp" type="text" value="{$settings->admin_email|escape}" /></li>
+				<li><label class=property>Номер счетчика Яндекс метрики</label><input name="metrika" class="simpla_inp" type="text" value="{$settings->metrika|escape}" /></li>
 			</ul>
 		</div>
 		<div class="block layer">

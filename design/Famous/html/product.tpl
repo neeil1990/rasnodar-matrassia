@@ -21,6 +21,7 @@
     </div>
 </div>
 <!-- Breadcrumbs End -->
+
 <meta itemprop="availability" href="http://schema.org/InStock" content="В наличии">
 <!-- Main Container -->
 <div class="main-container col1-layout">
@@ -133,25 +134,25 @@
                         <div class="product-alerts">
                             <div class="row">
                                 <div class="col-md-6 col-xs-12 col-sm-12">
-                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-whatever="Консультация">
+                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Consult" data-whatever="Консультация">
                                         <i class="fa fa-thumbs-up fa-lg"></i> Консультация +7 (861) 217-59-54
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-xs-12 col-sm-12">
-                                    <div class="alertymes4" data-toggle="modal" data-target="#shop-popup" data-whatever="Нашли дешевле?">
+                                    <div class="alertymes4" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Nashli-deshevle" data-whatever="Нашли дешевле?">
                                         <i class="fa fa-thumbs-up fa-lg"></i> Нашли дешевле? Сделаем скидку!
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-xs-12 col-sm-12">
-                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-whatever="Быстрая доставка">
+                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Bystraya-dostavka" data-whatever="Быстрая доставка">
                                         <i class="fa fa-truck fa-lg"></i> Быстрая доставка
                                     </div>
                                 </div>
 
                                 <div class="col-md-6 col-xs-12 col-sm-12">
-                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-whatever="Купить в 1 клик">
+                                    <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Kupit-1-click" data-whatever="Купить в 1 клик">
                                         <i class="fa fa-thumbs-up fa-lg"></i> Купить в 1 клик
                                     </div>
                                 </div>
@@ -161,7 +162,7 @@
                         <div class="product-cart-option">
                             <ul>
                                 <li><a href="#" class="add_to_compare" data-id="{$product->id}"><i class="fa fa-link"></i><span>Добавить в сравнение</span></a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#shop-popup" data-whatever="Заказать звонок!"><i class="fa fa-envelope"></i><span>Заказать звонок</span></a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Zakazat-zvonok" data-whatever="Заказать звонок!"><i class="fa fa-envelope"></i><span>Заказать звонок</span></a></li>
                             </ul>
                         </div>
 

@@ -21,6 +21,7 @@ class SettingsAdmin extends Simpla
 			$this->settings->company_name = $this->request->post('company_name');
 			$this->settings->date_format = $this->request->post('date_format');
 			$this->settings->admin_email = $this->request->post('admin_email');
+			$this->settings->metrika = $this->request->post('metrika');
 			$this->settings->theme_full = $this->request->post('theme_full');
 			$this->settings->theme_mobile = $this->request->post('theme_mobile');
 			

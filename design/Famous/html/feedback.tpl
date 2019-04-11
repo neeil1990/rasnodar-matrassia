@@ -38,6 +38,14 @@
                                 <i class="fa fa-exclamation-circle fa-lg"></i>
                                 {$name|escape}, ваше сообщение отправлено.
                             </div>
+
+                                <script type="text/javascript">
+                                    window.onload = function() {
+                                        ym({$settings->metrika|escape}, 'reachGoal', 'Obranaya-svyaz',function(){
+                                            console.log("Obranaya-svyaz send!")
+                                        });
+                                    }
+                                </script>
                             {else}
                                 {if $error}
                                     <div class="alert alert-danger" role="alert">

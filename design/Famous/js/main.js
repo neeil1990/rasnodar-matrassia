@@ -609,6 +609,8 @@ jQuery(document).ready(function() {
     $('#shop-popup').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) ;
         var recipient = button.data('whatever');
+        var metrika = button.data('metrika');
+        var goal = button.data('goal');
 
         var modal = $(this);
 
@@ -621,6 +623,13 @@ jQuery(document).ready(function() {
                         var success = $('#success');
                         success.find('.modal-body .alert').text(i.message);
                         success.modal('show');
+                        try {
+                            ym(metrika, 'reachGoal', goal, function(){
+                                console.log(goal + " send!")
+                            });
+                        } catch(e) {
+                            console.log("Ошибка метрики" + e);
+                        }
                         setTimeout(function(){
                             success.modal('hide');
                         }, 5000);

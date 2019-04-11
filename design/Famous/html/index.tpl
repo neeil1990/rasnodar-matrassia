@@ -140,7 +140,7 @@
 								</div>
 							</div>
 							<div class="order-call">
-								<a href="#" data-toggle="modal" data-target="#shop-popup" data-whatever="Заказать звонок!">Заказать звонок!</a>
+								<a href="#" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Zakazat-zvonok" data-whatever="Заказать звонок!">Заказать звонок!</a>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-5 col-md-3">

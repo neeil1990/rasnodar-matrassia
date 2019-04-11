@@ -615,6 +615,14 @@ jQuery(document).ready(function() {
         var modal = $(this);
 
         modal.find('form').submit(function(){
+            try {
+                ym(metrika, 'reachGoal', goal, function(){
+                    console.log(goal + " send!");
+                });
+            } catch(e) {
+                console.log("Ошибка метрики" + e);
+            }
+            
             jQuery.getJSON("/callme/index.php",
                 $.extend(getFormData($(this)), {url: location.href})
                 , function(i) {
@@ -623,13 +631,6 @@ jQuery(document).ready(function() {
                         var success = $('#success');
                         success.find('.modal-body .alert').text(i.message);
                         success.modal('show');
-                        try {
-                            ym(metrika, 'reachGoal', goal, function(){
-                                console.log(goal + " send!")
-                            });
-                        } catch(e) {
-                            console.log("Ошибка метрики" + e);
-                        }
                         setTimeout(function(){
                             success.modal('hide');
                         }, 5000);

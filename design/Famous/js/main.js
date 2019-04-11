@@ -632,8 +632,8 @@ jQuery(document).ready(function() {
                         success.find('.modal-body .alert').text(i.message);
                         success.modal('show');
                         setTimeout(function(){
-                            success.modal('hide');
-                        }, 5000);
+                            location.reload();
+                        }, 2000);
                     }else{
                         $(modal).modal('hide');
                         alertify.error('Ошибка отправки!');

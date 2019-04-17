@@ -24,7 +24,8 @@ class CategoryAdmin extends Simpla
 			$category->meta_title = $this->request->post('meta_title');
 			$category->meta_keywords = $this->request->post('meta_keywords');
 			$category->meta_description = $this->request->post('meta_description');
-			
+			$category->meta_title_product = $this->request->post('meta_title_product');
+
 			$category->description = $this->request->post('description');
 	
 			// Не допустить одинаковые URL разделов.

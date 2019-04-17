@@ -184,8 +184,7 @@ class ProductView extends View
 		// Категория и бренд товара
 		$product->categories = $this->categories->get_categories(array('product_id'=>$product->id));
 		$this->design->assign('brand', $this->brands->get_brand(intval($product->brand_id)));		
-		$this->design->assign('category', reset($product->categories));		
-		
+		$this->design->assign('category', reset($product->categories));
 
 		// Добавление в историю просмотров товаров
 		$max_visited_products = 100; // Максимальное число хранимых товаров в истории
@@ -201,7 +200,22 @@ class ProductView extends View
 		$browsed_products[] = $product->id;
 		$cookie_val = implode(',', array_slice($browsed_products, -$max_visited_products, $max_visited_products));
 		setcookie("browsed_products", $cookie_val, $expire, "/");
-		
+
+		if(empty($product->meta_title) && is_array($product->categories)){
+            $product->price = $this->money->convert(current($product->variants)->price);
+            $product->variants_name = current($product->variants)->name;
+
+		    $meta_title_product = current($product->categories)->meta_title_product;
+            preg_match_all("/{(.*?)}/",$meta_title_product,$title_temp,PREG_PATTERN_ORDER);
+		    foreach(current($title_temp) as $k => $temp){
+		        if($property = end($title_temp)[$k]){
+		            if(isset($product->$property) && !empty($product->$property))
+                    $meta_title_product = str_replace($temp,$product->$property,$meta_title_product);
+                }
+            }
+            $product->meta_title = $meta_title_product;
+        }
+
 		$this->design->assign('meta_title', $product->meta_title);
 		$this->design->assign('meta_keywords', $product->meta_keywords);
 		$this->design->assign('meta_description', $product->meta_description);

@@ -1,4 +1,4 @@
 add table s_comments "pluses_text","minuses_text","rating","image";
 add table s_variants "width","height","color";
 add table s_offer
-
+ALTER TABLE `s_categories` ADD `meta_title_product` VARCHAR(255) NOT NULL AFTER `meta_description`;

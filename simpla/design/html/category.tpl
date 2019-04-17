@@ -195,6 +195,11 @@ function translit(str)
 				<li><label class=property>Заголовок</label><input name="meta_title" class="simpla_inp" type="text" value="{$category->meta_title|escape}" /></li>
 				<li><label class=property>Ключевые слова</label><input name="meta_keywords" class="simpla_inp" type="text" value="{$category->meta_keywords|escape}" /></li>
 				<li><label class=property>Описание</label><textarea name="meta_description" class="simpla_inp">{$category->meta_description|escape}</textarea></li>
+				<li>
+					<label class=property>Шаблон заголовка для товаров категории</label>
+					<input name="meta_title_product" class="simpla_inp" type="text" value="{$category->meta_title_product|escape}" />
+					<div class="comment_info">{literal}Основные шаблоны {id}, {url}, {name}, {price}, {variants_name}{/literal}</div>
+				</li>
 			</ul>
 		</div>
 		<!-- Параметры страницы (The End)-->

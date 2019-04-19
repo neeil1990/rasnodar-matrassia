@@ -42,6 +42,8 @@
 				<li><label class=property>Формат даты</label><input name="date_format" class="simpla_inp" type="text" value="{$settings->date_format|escape}" /></li>
 				<li><label class=property>Email для восстановления пароля</label><input name="admin_email" class="simpla_inp" type="text" value="{$settings->admin_email|escape}" /></li>
 				<li><label class=property>Номер счетчика Яндекс метрики</label><input name="metrika" class="simpla_inp" type="text" value="{$settings->metrika|escape}" /></li>
+				<li><label class=property>Телефон</label><input name="phone" class="simpla_inp" type="text" value="{$settings->phone|escape}" /></li>
+				<li><label class=property>Адрес магазина</label><input name="street_shop" class="simpla_inp" type="text" value="{$settings->street_shop|escape}" /></li>
 			</ul>
 		</div>
 		<div class="block layer">

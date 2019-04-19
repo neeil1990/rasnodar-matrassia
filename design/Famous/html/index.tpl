@@ -106,7 +106,7 @@
 
 						<!-- top links -->
 						<div class="headerlinkmenu col-md-6 col-sm-6 col-xs-12">
-							<span class="phone  hidden-xs hidden-sm">Адрес: ул. Суздальская, 1</span>
+							<span class="phone  hidden-xs hidden-sm">Адрес: {$settings->street_shop|escape}</span>
 							<ul class="links">
 								{if $user}
 									<li>
@@ -141,7 +141,7 @@
 								<div class="link-phone">
 									<a href="tel:+78612175954">
 										<i class="icon-call-in icons"></i>
-										<span>+7 (861) 217-59-54</span>
+										<span>{$settings->phone|escape}</span>
 									</a>
 								</div>
 							</div>

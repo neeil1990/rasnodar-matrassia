@@ -524,7 +524,5 @@
 	});
 </script>
 
-	<!--script for user services-->
-	{include file="user_script.tpl"}
 </body>
 </html>

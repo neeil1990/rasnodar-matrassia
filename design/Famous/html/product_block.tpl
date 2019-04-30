@@ -3,7 +3,7 @@
         <div class="product-thumbnail">
             <div class="icon-new-label new-left">New</div>
             <div class="pr-img-area">
-                <a title="Ipsums Dolors Untra" href="products/{$product->url}">
+                <a title="" href="products/{$product->url}">
                     <figure>
                         <img class="first-img" src="{$product->image->filename|resize:160:160}" rel="image_src" alt="{$product->name|escape}">
                     </figure>

@@ -214,7 +214,7 @@
 														{foreach item=cat from=$arrSubCat[$foo]}
 														{* Показываем только видимые категории *}
 														{if $cat->visible}
-															<a href="catalog/{$cat->url}"><h3>{$cat->name}</h3></a>
+															<a href="catalog/{$cat->url}"><div class="h3">{$cat->name}</div></a>
 															<ul class="nav">
 																{if $cat->subcategories}
 																{foreach $cat->subcategories as $cat3}
@@ -288,7 +288,7 @@
 				</div>
 				<div class="col-sm-6 col-md-2 col-xs-12 collapsed-block">
 					<div class="footer-links">
-						<h5 class="links-title">Товары<a class="expander visible-xs" href="#TabBlock-1">+</a></h5>
+						<div class="h5 links-title">Товары<a class="expander visible-xs" href="#TabBlock-1">+</a></div>
 						<div class="tabBlock" id="TabBlock-1">
 							<ul class="list-links list-unstyled">
 								{if $categories}
@@ -305,7 +305,7 @@
 				</div>
 				<div class="col-sm-3 col-md-2 col-xs-12 collapsed-block">
 					<div class="footer-links">
-						<h5 class="links-title">ДОПОЛНИТЕЛЬНО<a class="expander visible-xs" href="#TabBlock-3">+</a></h5>
+						<div class="h5 links-title">ДОПОЛНИТЕЛЬНО<a class="expander visible-xs" href="#TabBlock-3">+</a></div>
 						<div class="tabBlock" id="TabBlock-3">
 							<ul class="list-links list-unstyled">
 								{foreach $pages as $p}
@@ -319,7 +319,7 @@
 				</div>
 				<div class="col-sm-3 col-md-2 col-xs-12 collapsed-block">
 					<div class="footer-links">
-						<h5 class="links-title">Сервис<a class="expander visible-xs" href="#TabBlock-4">+</a></h5>
+						<div class="h5 links-title">Сервис<a class="expander visible-xs" href="#TabBlock-4">+</a></div>
 						<div class="tabBlock" id="TabBlock-4">
 							<ul class="list-links list-unstyled">
 								<li><a title="Регистрация" href="/user/register"><span>Регистрация</span></a></li>
@@ -335,7 +335,7 @@
 				</div>
 				<div class="col-sm-6 col-md-3 col-xs-12 collapsed-block">
 					<div class="footer-links">
-						<h5 class="links-title">Время работы<a class="expander visible-xs" href="#TabBlock-5">+</a></h5>
+						<div class="h5 links-title">Время работы<a class="expander visible-xs" href="#TabBlock-5">+</a></div>
 						<div class="tabBlock" id="TabBlock-5">
 							<div class="footer-description">Интернет-магазина.</div>
 							<div class="footer-description"> <b>без выходных</b> 9:00 - 20:00<br></div>

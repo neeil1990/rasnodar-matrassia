@@ -103,7 +103,7 @@
                         <form class="js-buyform variants2" name="buy_form" action="cart">
                             <div class="product-color-size-area">
                                 <div class="size-area">
-                                    <h2 class="saider-bar-title">Вариант</h2>
+                                    <div class="h2 saider-bar-title">Вариант</div>
                                     <div class="size">
                                         {* Не показывать выбор варианта, если он один и без названия *}
                                         <select name="variant" {if $product->variants|count==1  && !$product->variant->name}style='display:none;'{/if}>
@@ -168,7 +168,7 @@
 
                         <div class="short-description">
                             <div class="page-title">
-                                <h2>Характеристики</h2>
+                                <div class="h2">Характеристики</div>
                             </div>
                             <table class="table table-bordered cart_summary">
                                 {foreach $product->features as $f}
@@ -257,19 +257,19 @@
                                                                     {/if}
 
                                                                     {if $comment->pluses_text}
-                                                                        <h5>Плюсы</h5>
+                                                                        <div class="h5">Плюсы</div>
                                                                         <p>{$comment->pluses_text|escape|nl2br}</p>
                                                                         <br>
                                                                     {/if}
 
                                                                     {if $comment->minuses_text}
-                                                                        <h5>Минусы</h5>
+                                                                        <div class="h5">Минусы</div>
                                                                         <p>{$comment->minuses_text|escape|nl2br}</p>
                                                                         <br>
                                                                     {/if}
 
                                                                     {if $comment->text}
-                                                                        <h5 itemprop="itemReviewed">Отзыв</h5>
+                                                                        <div class="h5" itemprop="itemReviewed">Отзыв</div>
                                                                         <p itemprop="reviewBody">{$comment->text|escape|nl2br}</p>
                                                                         <br>
                                                                     {/if}
@@ -297,7 +297,7 @@
 
                                         <div class="col-sm-12 col-lg-12 col-md-12">
                                             <div class="best-title text-left">
-                                                <h2>Оставить отзыв</h2>
+                                                <div class="h2">Оставить отзыв</div>
                                             </div>
 
                                             <div class="reviews-content-right">
@@ -393,7 +393,7 @@
         <div class="col-xs-12">
             <div class="related-product-area">
                 <div class="page-header">
-                    <h2>Так же советуем посмотреть</h2>
+                    <div class="h2">Так же советуем посмотреть</div>
                 </div>
                 <div class="related-products-pro">
                     <div class="slider-items-products">

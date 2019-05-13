@@ -117,28 +117,33 @@ a:focus {
 :focus {
 	outline: none;
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+{
 	margin: 0 0 5px;
 	line-height: 1.35;
 	color: #000
 }
-h1 {
+h1, .h1
+{
 	font-weight: normal
 }
-h2 {
+h2, .h2
+{
 	font-weight: normal;
 	margin-bottom: 15px
 }
-h3 {
+h3, .h3
+{
 	font-weight: 600
 }
-h4 {
+h4, .h4 {
 	font-weight: 600
 }
-h5 {
+h5, .h5 {
 	font-weight: 600
 }
-h6 {
+h6, .h6 {
 	font-weight: 600
 }
 form {
@@ -2224,7 +2229,9 @@ a.link:hover {
 	font-weight: 600;
 	color: #333333
 }
-.page-header h2 {
+.page-header h2,
+.page-header .h2
+{
 	font-size: 18px;
 	font-weight: 600;
 	margin-bottom: 0px;
@@ -3137,7 +3144,9 @@ footer p {
 	color: #999;
 	line-height: 20px;
 }
-footer h5 {
+footer h5,
+footer .h5
+{
 	margin: 0px 0 2px;
 	padding: 0 0 10px;
 	letter-spacing: 0.5px;
@@ -4296,7 +4305,7 @@ html {
 .popup .col-md-4 {
 	padding: 0px 12px;
 }
-.popup h3 {
+.popup .h3 {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 600;
@@ -5165,7 +5174,7 @@ button span {
 	width: 50%;
 	float: left
 }
-h2.saider-bar-title {
+.h2.saider-bar-title {
 	color: #333333;
 	display: block;
 	font-size: 13px;
@@ -5933,7 +5942,7 @@ ul.products-list .cart-button i {
 	border-top: 1px solid #e5e5e5;
 	margin-bottom: 15px
 }
-.product-view-area .short-description h2 {
+.product-view-area .short-description .h2 {
 	font-size: 15px;
 	color: #333;
 	margin-bottom: 5px;
@@ -7761,7 +7770,9 @@ label[for="rememberme"] {
 	border-bottom: 1px solid #e5e5e5;
 	position: relative;
 }
-.best-title h2 {
+.best-title h2,
+.best-title .h2
+{
 	font-size: 20px;
 	font-weight: 700;
 	margin-bottom: 0px;

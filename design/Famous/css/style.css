@@ -1458,7 +1458,9 @@ ul#cart-sidebar {
 	vertical-align: middle;
 	padding: 0px;
 }
-.jtv-service-area .block-wrapper .text-des h3 {
+.jtv-service-area .block-wrapper .text-des h3,
+.jtv-service-area .block-wrapper .text-des .h3
+{
 	font-size: 14px;
 	margin-bottom: 3px;
 	display: inline-block;
@@ -5025,7 +5027,9 @@ button span {
 	font-weight: 600;
 	border-bottom: 1px solid #e5e5e5;
 }
-.sidebar-bar-title h3 {
+.sidebar-bar-title h3,
+.sidebar-bar-title .h3
+{
 	font-size: 14px;
 	letter-spacing: 0.5px;
 	border-bottom: 2px solid #1577C7;

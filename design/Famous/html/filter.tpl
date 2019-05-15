@@ -3,7 +3,7 @@
 
     <div class="block product-price-range ">
         <div class="sidebar-bar-title">
-            <h3>Цена</h3>
+            <div class="h3">Цена</div>
         </div>
         <div class="block-content">
             <div class="slider-range">
@@ -29,7 +29,7 @@
     {if $variants_width || $variants_height}
     <div class="block product-price-range ">
         <div class="sidebar-bar-title">
-            <h3>Размер&nbsp;</h3>
+            <div class="h3">Размер&nbsp;</div>
         </div>
 
         <div class="block-content">
@@ -61,7 +61,7 @@
 
     <div class="block product-price-range ">
         <div class="sidebar-bar-title">
-            <h3>Цветовое решение&nbsp;</h3>
+            <div class="h3">Цветовое решение&nbsp;</div>
         </div>
 
         <div class="block-content">
@@ -85,7 +85,7 @@
         {foreach $features as $f}
         <div class="block product-price-range ">
             <div class="sidebar-bar-title">
-                <h3>{$f->name}&nbsp;</h3>
+                <div class="h3">{$f->name}&nbsp;</div>
             </div>
             <div class="block-content">
                 <div class="slider-range">

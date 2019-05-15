@@ -6,7 +6,7 @@
                     <div class="text-des">
                         <div class="icon-wrapper"><i class="fa fa-truck"></i></div>
                         <div class="service-wrapper">
-                            <h3>Быстрая доставка</h3>
+                            <div class="h3">Быстрая доставка</div>
                             <p> &nbsp;</p>
                         </div>
                     </div>
@@ -17,7 +17,7 @@
                     <div class="text-des">
                         <div class="icon-wrapper"><i class="fa fa-shield"></i></div>
                         <div class="service-wrapper">
-                            <h3>Гарантия на все товары</h3>
+                            <div class="h3">Гарантия на все товары</div>
                             <p> &nbsp;</p>
                         </div>
                     </div>
@@ -28,7 +28,7 @@
                     <div class="text-des">
                         <div class="icon-wrapper"><i class="fa fa-thumbs-up"></i></div>
                         <div class="service-wrapper">
-                            <h3>Работаем напрямую от фабрики</h3>
+                            <div class="h3">Работаем напрямую от фабрики</div>
 
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     <div class="text-des">
                         <div class="icon-wrapper"><i class="fa fa-map-marker"></i></div>
                         <div class="service-wrapper">
-                            <h3>Свой склад мебели в Краснодаре</h3>
+                            <div class="h3">Свой склад мебели в Краснодаре</div>
 
                         </div>
                     </div>

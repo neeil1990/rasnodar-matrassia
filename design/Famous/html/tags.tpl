@@ -1,7 +1,7 @@
 {if $tags}
 <div class="block popular-tags-area ">
     <div class="sidebar-bar-title">
-        <h3>Теги</h3>
+        <div class="h3">Теги</div>
     </div>
     <div class="tag">
         <ul>

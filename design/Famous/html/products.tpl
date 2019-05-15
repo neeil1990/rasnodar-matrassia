@@ -123,7 +123,7 @@
                 {if $category->brands || $features}
                 <div class="block shop-by-side">
                     <div class="sidebar-bar-title">
-                        <h3>Категории</h3>
+                        <div class="h3">Категории</div>
                     </div>
                     <div class="block-content">
                         <div class="slider-range">
@@ -161,7 +161,7 @@
 
                 <div class="block special-product">
                     <div class="sidebar-bar-title">
-                        <h3>Лучшие предложения</h3>
+                        <div class="h3">Лучшие предложения</div>
                     </div>
                     <div class="block-content">
                         <ul>

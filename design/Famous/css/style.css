@@ -1084,7 +1084,7 @@ select.cate-dropdown {
 	background: #fff;
 	box-shadow: 0 0 3px 0 #eaeaea;
 	border: 1px #e8e8e8 solid;
-	z-index: 50
+	z-index: 1000
 }
 .top-cart-content p {
 	color: #333333;

@@ -139,7 +139,7 @@
 						<div class="col-xs-12 col-sm-5 col-md-3">
 							<div class="top-phone">
 								<div class="link-phone">
-									<a href="tel:+78612175954">
+									<a href="tel:{$settings->phone|escape}">
 										<i class="icon-call-in icons"></i>
 										<span>{$settings->phone|escape}</span>
 									</a>
@@ -279,7 +279,7 @@
 					<div class="footer-logo"><a href="index.html"><img src="design/{$settings->theme|escape}/images/footer-logo.png" alt="fotter logo"></a> </div>
 					<p><i class="fa fa-map-marker" aria-hidden="true"></i> <b>{$settings->company_name|escape}</b></p>
 					<p>Ортопедические матрасы. Кровати. Шкафы-купе. Мебель для спальни и гостиной.</p>
-					<p><a style="color: #999;" href="tel:+78612175954">+7 (861) 217-59-54</a></p>
+					<p><a style="color: #999;" href="tel:{$settings->phone|escape}">{$settings->phone|escape}</a></p>
 					<div class="social">
 						<ul class="inline-mode">
 							<li class="social-network fb"><a title="ПРИСОЕДИНЯЙТЕСЬ" href="https://vk.com/krasnodarmatrassia" target="_blank"><i class="fa fa-vk"></i></a></li>

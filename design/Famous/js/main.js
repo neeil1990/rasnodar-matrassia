@@ -487,7 +487,7 @@ jQuery(document).ready(function() {
     }
 
     jQuery('select[name=variant]').each(function(li,el){
-
+		
         var price = $(el).find('option:selected').attr('price');
         var compare_price = '';
         if(typeof $(el).find('option:selected').attr('compare_price') == 'string')
@@ -497,7 +497,7 @@ jQuery(document).ready(function() {
 
         jQuery(el).closest('.prod').find('.special-price span.price').html(price + " руб");
         jQuery(el).closest('.prod').find('.old-price span.price').html(compare_price + " руб");
-        return false;
+        
     });
 
 

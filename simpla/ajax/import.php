@@ -16,6 +16,9 @@ class ImportAjax extends Simpla
 			'price'=>            array('price', 'цена'),
 			'compare_price'=>    array('compare price', 'старая цена'),
 			'sku'=>              array('sku', 'артикул'),
+            'color'=>            array('color', 'цвет основной'),
+            'height'=>           array('height', 'ширина основная'),
+            'width'=>            array('width', 'длина основная'),
 			'stock'=>            array('stock', 'склад', 'на складе'),
 			'meta_title'=>       array('meta title', 'заголовок страницы'),
 			'meta_keywords'=>    array('meta keywords', 'ключевые слова'),
@@ -50,17 +53,18 @@ class ImportAjax extends Simpla
 		$f = fopen($this->import_files_dir.$this->import_file, 'r');
 		$this->columns = fgetcsv($f, null, $this->column_delimiter);
 
-		// Заменяем имена колонок из файла на внутренние имена колонок
-		foreach($this->columns as &$column)
-		{ 
-			if($internal_name = $this->internal_column_name($column))
-			{
-				$this->internal_columns_names[$column] = $internal_name;
-				$column = $internal_name;
-			}
-		}
+        // Заменяем имена колонок из файла на внутренние имена колонок
+        foreach($this->columns as &$column)
+        {
+            if($internal_name = $this->internal_column_name($column))
+            {
+                $this->internal_columns_names[$column] = $internal_name;
+                $column = $internal_name;
+            }
+        }
 
-		// Если нет названия товара - не будем импортировать
+
+        // Если нет названия товара - не будем импортировать
 		if(!in_array('name', $this->columns) && !in_array('sku', $this->columns))
 			return false;
 	 	
@@ -74,26 +78,27 @@ class ImportAjax extends Simpla
 		// Проходимся по строкам, пока не конец файла
 		// или пока не импортировано достаточно строк для одного запроса
 		for($k=0; !feof($f) && $k<$this->products_count; $k++)
-		{ 
-			// Читаем строку
-			$line = fgetcsv($f, 0, $this->column_delimiter);
+		{
+            // Читаем строку
+            $line = fgetcsv($f, 0, $this->column_delimiter);
 
-			$product = null;			
+            $product = null;
 
-			if(is_array($line))			
-			// Проходимся по колонкам строки
-			foreach($this->columns as $i=>$col)
-			{
-				// Создаем массив item[название_колонки]=значение
- 				if(isset($line[$i]) && !empty($line) && !empty($col))
-					$product[$col] = $line[$i];
-			}
-			
-			// Импортируем этот товар
-	 		if($imported_item = $this->import_item($product))
-				$imported_items[] = $imported_item;
-		}
-		
+            if(is_array($line))
+            // Проходимся по колонкам строки
+            foreach($this->columns as $i=>$col)
+            {
+                // Создаем массив item[название_колонки]=значение
+                if(isset($line[$i]) && !empty($line) && !empty($col)){
+                    $product[$col] = $line[$i];
+                }
+            }
+
+            // Импортируем этот товар
+            if($imported_item = $this->import_item($product))
+            $imported_items[] = $imported_item;
+        }
+
 		// Запоминаем на каком месте закончили импорт
  		$from = ftell($f);
  		
@@ -193,7 +198,7 @@ class ImportAjax extends Simpla
 			
 		if(isset($item['sku']))
 			$variant['sku'] = trim($item['sku']);
-		
+
 		// Если задан артикул варианта, найдем этот вариант и соответствующий товар
 		if(!empty($variant['sku']))
 		{ 
@@ -214,6 +219,15 @@ class ImportAjax extends Simpla
 				$imported_item->status = 'updated';
 			}
 		}
+
+        if(isset($item['color']))
+            $variant['color'] = trim($item['color']);
+
+        if(isset($item['height']))
+            $variant['height'] = trim($item['height']);
+
+        if(isset($item['width']))
+            $variant['width'] = trim($item['width']);
 		
 		// Если на прошлом шаге товар не нашелся, и задано хотя бы название товара
 		if((empty($product_id) || empty($variant_id)) && isset($item['name']))

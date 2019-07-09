@@ -15,6 +15,9 @@ class ExportAjax extends Simpla
 			'variant'=>          'Вариант',
 			'compare_price'=>    'Старая цена',
 			'sku'=>              'Артикул',
+			'color'=>            'Цвет основной',
+			'height'=>           'Ширина основная',
+			'width'=>            'Длина основная',
 			'stock'=>            'Склад',
 			'meta_title'=>       'Заголовок страницы',
 			'meta_keywords'=>    'Ключевые слова',
@@ -127,6 +130,9 @@ class ExportAjax extends Simpla
 	 			$v['price']           = $variant->price;
 	 			$v['compare_price']   = $variant->compare_price;
 	 			$v['sku']             = $variant->sku;
+	 			$v['color']             = $variant->color;
+	 			$v['height']             = $variant->height;
+	 			$v['width']             = $variant->width;
 	 			$v['stock']           = $variant->stock;
 	 			if($variant->infinity)
 	 				$v['stock']           = '';

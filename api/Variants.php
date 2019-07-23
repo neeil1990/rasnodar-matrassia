@@ -69,7 +69,22 @@ class Variants extends Simpla
 		if(empty($field))
 			return false;
 
-		$query = $this->db->placehold("SELECT DISTINCT pv.$field FROM __products_categories AS pc LEFT JOIN __variants AS pv ON pc.product_id=pv.product_id WHERE pc.category_id = $category_id");
+        if($field == 'width')
+            $width = $this->db->placehold('AND pv.width != 0');
+
+        if($field == 'height')
+            $height = $this->db->placehold('AND pv.height != 0');
+
+        if($field == 'color')
+            $color = $this->db->placehold('AND pv.color != ""');
+
+		$query = $this->db->placehold("SELECT DISTINCT pv.$field 
+                    FROM __products_categories AS pc LEFT JOIN __variants AS pv ON pc.product_id=pv.product_id 
+                    WHERE
+                    pc.category_id = $category_id
+                    $width
+                    $height
+                    $color");
 
 		$this->db->query($query);
 		$unique = $this->db->results();

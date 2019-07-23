@@ -38,6 +38,7 @@
                     <label class="required">Ширина</label>
                     <div class="custom_select">
                         <select class="input form-control" name="height" id="variants_height">
+                            <option value="0">0</option>
                             {foreach $variants_height as $h}
                                 <option value="{$h->height}" {if $filter.height == $h->height}selected{/if}>{$h->height}</option>
                             {/foreach}
@@ -48,6 +49,7 @@
                 <label class="required">Длина</label>
                 <div class="custom_select">
                     <select class="input form-control" name="width" id="variants_width">
+                        <option value="0">0</option>
                         {foreach $variants_width as $w}
                             <option value="{$w->width}" {if $filter.width == $w->width}selected{/if}>{$w->width}</option>
                         {/foreach}
@@ -59,26 +61,26 @@
     </div>
     {/if}
 
+    {if $variants_color}
     <div class="block product-price-range ">
         <div class="sidebar-bar-title">
             <div class="h3">Цветовое решение&nbsp;</div>
         </div>
-
         <div class="block-content">
             <div class="slider-range">
-                {if $variants_color}
-                    <label class="required">Цвет</label>
-                    <div class="custom_select">
-                        <select class="input form-control" name="color" id="variants_color">
-                            {foreach $variants_color as $c}
-                                <option value="{$c->color}" {if $smarty.get.color == $c->color}selected{/if}>{$c->color}</option>
-                            {/foreach}
-                        </select>
-                    </div><br>
-                {/if}
+                <label class="required">Цвет</label>
+                <div class="custom_select">
+                    <select class="input form-control" name="color" id="variants_color">
+                        <option></option>
+                        {foreach $variants_color as $c}
+                            <option value="{$c->color}" {if $smarty.get.color == $c->color}selected{/if}>{$c->color}</option>
+                        {/foreach}
+                    </select>
+                </div><br>
             </div>
         </div>
     </div>
+    {/if}
 
 
     {if $features}

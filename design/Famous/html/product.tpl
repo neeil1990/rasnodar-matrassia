@@ -135,7 +135,7 @@
                             <div class="row">
                                 <div class="col-md-6 col-xs-12 col-sm-12">
                                     <div class="alertymes4 blue" data-toggle="modal" data-target="#shop-popup" data-metrika="{$settings->metrika|escape}" data-goal="Consult" data-whatever="Консультация">
-                                        <i class="fa fa-thumbs-up fa-lg"></i> Консультация +7 (861) 217-59-54
+                                        <i class="fa fa-thumbs-up fa-lg"></i> Консультация {$settings->phone|escape}
                                     </div>
                                 </div>
 

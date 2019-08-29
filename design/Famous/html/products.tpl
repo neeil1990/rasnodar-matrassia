@@ -73,6 +73,11 @@
                             <h2>{$category->name|escape} {$brand->name|escape} {$keyword|escape}</h2>
                         {/if}
                     </div>
+                    {if $category->description_head}
+                    <div class="description-bottom">
+                        {$category->description_head}
+                    </div>
+                    {/if}
                     <div class="toolbar">
                         <div class="view-mode">
                             <ul>

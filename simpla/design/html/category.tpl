@@ -237,11 +237,17 @@ function translit(str)
 			{/if}
 		</div>
 	</div>
-	<!-- Правая колонка свойств товара (The End)--> 
+	<!-- Правая колонка свойств товара (The End)-->
 
 	<!-- Описагние категории -->
 	<div class="block layer">
-		<h2>Описание</h2>
+		<h2>Описание над категориями</h2>
+		<textarea name="description_head" class="editor_large">{$category->description_head|escape}</textarea>
+	</div>
+
+	<!-- Описагние категории -->
+	<div class="block layer">
+		<h2>Описание после категорий</h2>
 		<textarea name="description" class="editor_large">{$category->description|escape}</textarea>
 	</div>
 	<!-- Описание категории (The End)-->

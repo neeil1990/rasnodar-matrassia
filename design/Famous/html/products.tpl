@@ -70,10 +70,14 @@
                         {elseif $page}
                             {if $category->description_head}
                                 {$category->description_head}
+                            {else}
+                                {$category->name|escape}
                             {/if}
                         {else}
                             {if $category->description_head}
                                 {$category->description_head}
+                            {elseif $category->name|escape}
+                                <h1>{$category->name|escape}</h1>
                             {else}
                                 <h1>{$brand->name|escape} {$keyword|escape}</h1>
                             {/if}

@@ -68,16 +68,18 @@
                         {if $keyword}
                             <h1>Результаты поиска по фразе "{$keyword|escape}" в мебельном интернет - магазине Матрассия</h1>
                         {elseif $page}
-                            <h2>{$page->name|escape}</h2>
+                            {if $category->description_head}
+                                {$category->description_head}
+                            {/if}
                         {else}
-                            <h2>{$category->name|escape} {$brand->name|escape} {$keyword|escape}</h2>
+                            {if $category->description_head}
+                                {$category->description_head}
+                            {else}
+                                <h1>{$brand->name|escape} {$keyword|escape}</h1>
+                            {/if}
                         {/if}
                     </div>
-                    {if $category->description_head}
-                    <div class="description-bottom">
-                        {$category->description_head}
-                    </div>
-                    {/if}
+
                     <div class="toolbar">
                         <div class="view-mode">
                             <ul>

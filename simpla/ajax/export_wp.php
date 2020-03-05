@@ -172,7 +172,7 @@ class ExportWpAjax extends Simpla
 
         foreach($products as &$product)
         {
-            $product['type'] = 'variable';
+            $product['type'] = (count($product['variants']) > 1) ? 'variable' : 'simple';
             $product['sku'] = $product['id'];
             $product['v_catalog'] = 'visible';
             $product['tax_status'] = 'taxable';
@@ -199,7 +199,8 @@ class ExportWpAjax extends Simpla
             }
 
             //var_dump($product);
-            fputcsv($f, $res_prod, $this->column_delimiter);
+            if(count($product['variants']) > 1)
+                fputcsv($f, $res_prod, $this->column_delimiter);
 
 
             $variants = $product['variants'];
@@ -210,17 +211,18 @@ class ExportWpAjax extends Simpla
                 {
                     $result = array();
                     $result =  $product;
-                    $result['id'] = $result['id'].$key;
-                    $result['type'] = 'variation';
-                    $result['body'] = '';
-                    $result['allow_customer_reviews'] = '0';
-                    $result['parent_sku'] = $product['id'];
-                    $result['variant_main_value'] = ($variant['variant']) ?: 'Стандарт';
+
+                    if(count($product['variants']) > 1){
+                        $result['id'] = $result['id'].$key;
+                        $result['type'] = 'variation';
+                        $result['body'] = '';
+                        $result['allow_customer_reviews'] = '0';
+                        $result['parent_sku'] = $product['id'];
+                        $result['variant_main_value'] = ($variant['variant']) ?: 'Стандарт';
+                    }
 
                     foreach($variant as $name=>$value)
                         $result[$name]=$value;
-
-
 
                     foreach($this->columns_names as $internal_name=>$column_name)
                     {

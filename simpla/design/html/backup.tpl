@@ -2,7 +2,8 @@
 {capture name=tabs}
 	{if in_array('import', $manager->permissions)}<li><a href="index.php?module=ImportAdmin">Импорт</a></li>{/if}
 	{if in_array('export', $manager->permissions)}<li><a href="index.php?module=ExportAdmin">Экспорт</a></li>{/if}
-	<li class="active"><a href="index.php?module=BackupAdmin">Бекап</a></li>		
+	<li class="active"><a href="index.php?module=BackupAdmin">Бекап</a></li>
+	{if in_array('export', $manager->permissions)}<li><a href="index.php?module=ExportWpAdmin">Экспорт WP</a></li>{/if}
 {/capture}
 
 {* Title *}
@@ -19,7 +20,7 @@
 		<input type="hidden" name="name" value="">
 	</form>
 	{/if}
-</div>	
+</div>
 
 {if $message_success}
 <!-- Системное сообщение -->
@@ -49,12 +50,12 @@
 	<form id="list_form" method="post">
 	<input type="hidden" name="session_id" value="{$smarty.session.id}">
 
-		<div id="list">			
+		<div id="list">
 			{foreach $backups as $backup}
 			<div class="row">
 				{if $message_error != 'no_permission'}
 		 		<div class="checkbox cell">
-					<input type="checkbox" name="check[]" value="{$backup->name}"/>				
+					<input type="checkbox" name="check[]" value="{$backup->name}"/>
 				</div>
 				{/if}
 				<div class="name cell">
@@ -73,21 +74,21 @@
 			</div>
 			{/foreach}
 		</div>
-		
+
 		{if $message_error != 'no_permission'}
 		<div id="action">
 		<label id="check_all" class="dash_link">Выбрать все</label>
-	
+
 		<span id="select">
 		<select name="action">
 			<option value="delete">Удалить</option>
 		</select>
 		</span>
-	
+
 		<input id="apply_action" class="button_green" type="submit" value="Применить">
 		</div>
 		{/if}
-	
+
 	</form>
 </div>
 {/if}
@@ -105,13 +106,13 @@ $(function() {
 	}
 	// Раскрасить строки сразу
 	colorize();
-	
+
 	// Выделить все
 	$("#check_all").click(function() {
 		$('#list input[type="checkbox"][name*="check"]').attr('checked', $('#list input[type="checkbox"][name*="check"]:not(:checked)').length>0);
-	});	
+	});
 
-	// Удалить 
+	// Удалить
 	$("a.delete").click(function() {
 		$('#list input[type="checkbox"][name*="check"]').attr('checked', false);
 		$(this).closest(".row").find('input[type="checkbox"][name*="check"]').attr('checked', true);
@@ -119,7 +120,7 @@ $(function() {
 		$(this).closest("form").submit();
 	});
 
-	// Восстановить 
+	// Восстановить
 	$("a.restore").click(function() {
 		file = $(this).closest(".row").find('[name*="check"]').val();
 		$('form#hidden input[name="action"]').val('restore');
@@ -128,7 +129,7 @@ $(function() {
 		return false;
 	});
 
-	// Создать бекап 
+	// Создать бекап
 	$("a.add").click(function() {
 		$('form#hidden input[name="action"]').val('create');
 		$('form#hidden').submit();
@@ -137,14 +138,14 @@ $(function() {
 
 	$("form#hidden").submit(function() {
 		if($('input[name="action"]').val()=='restore' && !confirm('Текущие данные будут потеряны. Подтвердите восстановление'))
-			return false;	
+			return false;
 	});
-	
+
 	$("form#list_form").submit(function() {
 		if($('select[name="action"]').val()=='delete' && !confirm('Подтвердите удаление'))
-			return false;	
+			return false;
 	});
-	
+
 
 });
 

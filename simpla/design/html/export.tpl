@@ -2,29 +2,30 @@
 	{if in_array('import', $manager->permissions)}<li><a href="index.php?module=ImportAdmin">Импорт</a></li>{/if}
 	<li class="active"><a href="index.php?module=ExportAdmin">Экспорт</a></li>
 	{if in_array('backup', $manager->permissions)}<li><a href="index.php?module=BackupAdmin">Бекап</a></li>{/if}
+	{if in_array('export', $manager->permissions)}<li><a href="index.php?module=ExportWpAdmin">Экспорт WP</a></li>{/if}
 {/capture}
 {$meta_title='Экспорт товаров' scope=parent}
 
 <script src="{$config->root_url}/simpla/design/js/piecon/piecon.js"></script>
 <script>
 {literal}
-	
+
 var in_process=false;
 
 $(function() {
 
 	// On document load
 	$('input#start').click(function() {
- 
+
  		Piecon.setOptions({fallback: 'force'});
  		Piecon.setProgress(0);
     	$("#progressbar").progressbar({ value: 0 });
 
     	$("#start").hide('fast');
 		do_export();
-    
+
 	});
-  
+
 	function do_export(page)
 	{
 		page = typeof(page) != 'undefined' ? page : 1;
@@ -34,7 +35,7 @@ $(function() {
  			 	data: {page:page},
  			 	dataType: 'json',
   				success: function(data){
-  				
+
     				if(data && !data.end)
     				{
     					Piecon.setProgress(Math.round(100*data.page/data.totalpages));
@@ -42,7 +43,7 @@ $(function() {
     					do_export(data.page*1+1);
     				}
     				else
-    				{	
+    				{
 	    				if(data && data.end)
 	    				{
 	    					Piecon.setProgress(100);
@@ -53,12 +54,12 @@ $(function() {
   				},
 				error:function(xhr, status, errorThrown) {
 					alert(errorThrown+'\n'+xhr.responseText);
-        		}  				
-  				
+        		}
+
 		});
-	
-	} 
-	
+
+	}
+
 });
 {/literal}
 </script>
@@ -87,7 +88,7 @@ $(function() {
 	<h1>Экспорт товаров</h1>
 	{if $message_error != 'no_permission'}
 	<div id='progressbar'></div>
-	<input class="button_green" id="start" type="button" name="" value="Экспортировать" />	
+	<input class="button_green" id="start" type="button" name="" value="Экспортировать" />
 	{/if}
 </div>
- 
+

@@ -37,6 +37,7 @@ class IndexAdmin extends Simpla
 		'FeedbacksAdmin'      => 'feedbacks',
 		'ImportAdmin'         => 'import',
 		'ExportAdmin'         => 'export',
+		'ExportWpAdmin'         => 'export',
 		'BackupAdmin'         => 'backup',
 		'StatsAdmin'          => 'stats',
 		'ThemeAdmin'          => 'design',
@@ -62,10 +63,10 @@ class IndexAdmin extends Simpla
 
 		$this->design->set_templates_dir('simpla/design/html');
 		$this->design->set_compiled_dir('simpla/design/compiled');
-		
+
 		$this->design->assign('settings',	$this->settings);
 		$this->design->assign('config',	$this->config);
-		
+
 		// Администратор
 		$this->manager = $this->managers->get_manager();
 		$this->design->assign('manager', $this->manager);
@@ -73,7 +74,7 @@ class IndexAdmin extends Simpla
  		// Берем название модуля из get-запроса
 		$module = $this->request->get('module', 'string');
 		$module = preg_replace("/[^A-Za-z0-9]+/", "", $module);
-		
+
 		// Если не запросили модуль - используем модуль первый из разрешенных
 		if(empty($module) || !is_file('simpla/'.$module.'.php'))
 		{
@@ -90,8 +91,8 @@ class IndexAdmin extends Simpla
 			$module = 'ProductsAdmin';
 
 		// Подключаем файл с необходимым модулем
-		require_once('simpla/'.$module.'.php');  
-		
+		require_once('simpla/'.$module.'.php');
+
 		// Создаем соответствующий модуль
 		if(class_exists($module))
 			$this->module = new $module();
@@ -104,7 +105,7 @@ class IndexAdmin extends Simpla
 	{
 		$currency = $this->money->get_currency();
 		$this->design->assign("currency", $currency);
-		
+
 		// Проверка прав доступа к модулю
 		if(isset($this->modules_permissions[get_class($this->module)])
 		&& $this->managers->access($this->modules_permissions[get_class($this->module)]))
@@ -120,15 +121,15 @@ class IndexAdmin extends Simpla
 		// Счетчики для верхнего меню
 		$new_orders_counter = $this->orders->count_orders(array('status'=>0));
 		$this->design->assign("new_orders_counter", $new_orders_counter);
-		
+
 		$new_comments_counter = $this->comments->count_comments(array('approved'=>0));
 		$this->design->assign("new_comments_counter", $new_comments_counter);
-		
+
 		// Создаем текущую обертку сайта (обычно index.tpl)
 		$wrapper = $this->design->smarty->getTemplateVars('wrapper');
 		if(is_null($wrapper))
 			$wrapper = 'index.tpl';
-			
+
 		if(!empty($wrapper))
 			return $this->body = $this->design->fetch($wrapper);
 		else

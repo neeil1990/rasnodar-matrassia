@@ -80,10 +80,6 @@ class ExportWpAjax extends Simpla
         // Открываем файл экспорта на добавление
         $f = fopen($this->export_files_dir.$this->filename, 'ab');
 
-        // Добавим в список колонок свойства товаров
-        /*$features = $this->features->get_features();
-        foreach($features as $feature)
-            $this->columns_names[$feature->name] = $feature->name;*/
 
         // Если начали сначала - добавим в первую строку названия колонок
         if($page == 1)
@@ -97,16 +93,6 @@ class ExportWpAjax extends Simpla
         foreach($this->products->get_products(array('page'=>$page, 'limit'=>$this->products_count)) as $p)
         {
             $products[$p->id] = (array)$p;
-
-            // Свойства товаров
-            /*$options = $this->features->get_product_options($p->id);
-            foreach($options as $option)
-            {
-                if(!isset($products[$option->product_id][$option->name]))
-                    $products[$option->product_id][$option->name] = str_replace(',', '.', trim($option->value));
-            }*/
-
-
         }
 
         if(empty($products))
@@ -189,6 +175,9 @@ class ExportWpAjax extends Simpla
             }, $product['variants']));
             $product['variant_main_value'] = $variant_value;
 
+            if(count($product['variants']) == 1){
+                $product['price'] = $product['variants'][0]['price'];
+            }
 
             foreach($this->columns_names as $internal_name=>$column_name)
             {
@@ -198,28 +187,26 @@ class ExportWpAjax extends Simpla
                     $res_prod[$internal_name] = '';
             }
 
-            //var_dump($product);
-            if(count($product['variants']) > 1)
-                fputcsv($f, $res_prod, $this->column_delimiter);
+            //var_dump($res_prod);
+            fputcsv($f, $res_prod, $this->column_delimiter);
 
 
             $variants = $product['variants'];
             unset($product['variants']);
 
-            if(isset($variants))
+            if(isset($variants) && count($variants) > 1)
                 foreach($variants as $key => $variant)
                 {
                     $result = array();
                     $result =  $product;
 
-                    if(count($product['variants']) > 1){
-                        $result['id'] = $result['id'].$key;
-                        $result['type'] = 'variation';
-                        $result['body'] = '';
-                        $result['allow_customer_reviews'] = '0';
-                        $result['parent_sku'] = $product['id'];
-                        $result['variant_main_value'] = ($variant['variant']) ?: 'Стандарт';
-                    }
+                    $result['id'] = $result['id'].$key;
+                    $result['type'] = 'variation';
+                    $result['body'] = '';
+                    $result['allow_customer_reviews'] = '0';
+                    $result['parent_sku'] = $product['id'];
+                    $result['variant_main_value'] = $variant['variant'];
+
 
                     foreach($variant as $name=>$value)
                         $result[$name]=$value;
